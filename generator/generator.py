@@ -40,7 +40,7 @@ def generate_answer(query: str, context: list[dict]) -> dict:
         }
 
     context_text = "\n\n".join(
-        f"[{i+1}] PMID {r['pmid']}: {r['passage']}"
+        f"[{i+1}] PMID {r['pmid']}: {r['text']}"
         for i, r in enumerate(context)
     )
 
@@ -115,7 +115,7 @@ def check_faithfulness(answer: str, context: list[dict]) -> dict:
         }
     """
     sentences = split_sentences(answer)
-    passages = [r["passage"] for r in context]
+    passages = [r["text"] for r in context]
 
     if not sentences:
         return {"sentences": [], "overall_rate": 0.0}
@@ -180,12 +180,12 @@ if __name__ == "__main__":
     mock_context = [
         {
             "pmid": "12345678",
-            "passage": "Metformin is a first-line medication for type 2 diabetes. It works by decreasing hepatic glucose production and improving insulin sensitivity.",
+            "text": "Metformin is a first-line medication for type 2 diabetes. It works by decreasing hepatic glucose production and improving insulin sensitivity.",
             "score": 0.85
         },
         {
             "pmid": "87654321",
-            "passage": "Clinical trials show metformin reduces HbA1c levels by 1-2% on average. It is generally well tolerated with gastrointestinal side effects being most common.",
+            "text": "Clinical trials show metformin reduces HbA1c levels by 1-2% on average. It is generally well tolerated with gastrointestinal side effects being most common.",
             "score": 0.76
         }
     ]
