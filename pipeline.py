@@ -4,13 +4,13 @@ from generator import run as generate
 TOP_K = int(os.getenv("TOP_K", "5"))
 
 # ---------------------------------------------------------------------------
-# Retriever interface (stub — replace with B's implementation)
-# Expected signature: retrieve(query: str, top_k: int) -> list[dict]
+# Retriever interface — falls back to mock if retriever indexes aren't built yet
+# Signature: retrieve(query: str, top_k: int) -> list[dict]
 # Each result: {"pmid": str, "text": str, "score": float, ...}
 # ---------------------------------------------------------------------------
 
 def _mock_retrieve(query: str, top_k: int) -> list[dict]:
-    """Stub retriever for local testing. Replace with retriever.retrieve()."""
+    """Fallback retriever for local testing before indexes are built."""
     return [
         {
             "pmid": "12345678",

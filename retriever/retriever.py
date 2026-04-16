@@ -193,7 +193,7 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
         top_k:  Number of results to return.
 
     Returns:
-        List of dicts: {"pmid": str, "passage": str, "score": float}
+        List of dicts: {"pmid": str, "text": str, "score": float, ...}
     """
     global _bm25, _chunks, _index, _model
     if _bm25 is None:
@@ -241,7 +241,7 @@ def step5_test(query):
     for i, r in enumerate(results):
         print(f"\n[{i+1}] Score: {r['score']}")
         print(f"     PMID: {r['pmid']}")
-        print(f"     {r['passage']}")
+        print(f"     {r['text']}")
 
 
 # ── Main ───────────────────────────────────────────────────────────────────────

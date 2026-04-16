@@ -23,7 +23,7 @@ def generate_answer(query: str, context: list[dict]) -> dict:
     Args:
         query:   The user's question.
         context: List of retrieval results from B's retrieve().
-                 Each dict: {pmid, passage, score}
+                 Each dict: {pmid, text, score, ...}
 
     Returns:
         {
