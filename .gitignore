@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# Data / indexes (large files, generated locally)
+data/abstracts/
+data/*.jsonl
+data/*.json
+data/*.xml
+*.index
+*.faiss
+
+# Model cache
+.cache/
+~/.cache/huggingface/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code
+CLAUDE.md
+
+# Logs
+*.log

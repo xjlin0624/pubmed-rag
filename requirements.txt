@@ -1,0 +1,9 @@
+requests
+transformers
+torch
+streamlit
+faiss-cpu
+sentence-transformers
+rank-bm25
+pandas
+matplotlib

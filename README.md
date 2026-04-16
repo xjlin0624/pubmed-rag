@@ -157,10 +157,11 @@ Outputs: Exact Match, F1, Recall@5, and faithfulness rate across retrieval strat
 
 | Strategy | Recall@5 | F1 | Faithfulness |
 |---|---|---|---|
-| BM25 baseline | - | - | - |
-| Dense retrieval | - | - | - |
-| Hybrid (BM25 + Dense) | - | - | - |
-| Hybrid + Faithfulness filter | - | - | - |
+| BM25 baseline | TBD | TBD | TBD |
+| Dense retrieval (BioBERT) | TBD | TBD | TBD |
+| Hybrid (BM25 + Dense) | TBD | TBD | TBD |
+| Hybrid + Reranker | TBD | TBD | TBD |
+| Hybrid + Reranker + Faithfulness filter | TBD | TBD | TBD |
 
 *Results populated after ablation experiments.*
 
