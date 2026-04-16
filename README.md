@@ -171,10 +171,10 @@ Outputs: Exact Match, F1, Recall@5, and faithfulness rate across retrieval strat
 
 | Member | Role |
 |---|---|
-| A | Integration, infrastructure, Docker, GCP deployment |
-| B | Data pipeline, retrieval (BM25, dense, hybrid) |
-| C | Local LLM deployment, generation, faithfulness verification |
-| D | Streamlit frontend, evaluation, EDA |
+| Xinyi Jiang | Integration, infrastructure, Docker, GCP deployment |
+| Minjia Fang | Data pipeline, retrieval (BM25, dense, hybrid) |
+| Xuelan Lin | Local LLM deployment, generation, faithfulness verification |
+| Weiyi Sun | Streamlit frontend, evaluation, EDA |
 
 ---
 
