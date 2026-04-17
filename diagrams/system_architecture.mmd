@@ -1,0 +1,26 @@
+%% PubMed RAG — system architecture (Mermaid source).
+%% Render in VS Code / GitHub, or: npx @mermaid-js/mermaid-cli -i diagrams/system_architecture.mmd -o diagrams/system_architecture.png
+
+flowchart LR
+    subgraph client["Client"]
+        U[User / Browser]
+    end
+
+    subgraph gcp["GCP VM (demo)"]
+        ST[Streamlit app.py]
+        PL[pipeline.run]
+        RT[retriever.retrieve\nBM25 + dense + FAISS]
+        GEN[generator.generate_answer\nOllama Qwen3]
+        NLI[generator.check_faithfulness\nNLI cross-encoder]
+        OL[Ollama 127.0.0.1:11434]
+        IDX[(chunks.json +\nfaiss.index)]
+    end
+
+    U -->|HTTPS :8501| ST
+    ST --> PL
+    PL -->|retrieve query, top_k| RT
+    RT --> IDX
+    PL -->|context passages| GEN
+    GEN -->|HTTP /api/generate| OL
+    GEN -->|answer + context| NLI
+    NLI -->|sentence-level scores| ST

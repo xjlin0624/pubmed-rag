@@ -120,6 +120,7 @@ def check_faithfulness(answer: str, context: list[dict]) -> dict:
     if not sentences:
         return {"sentences": [], "overall_rate": 0.0}
 
+    threshold = float(os.getenv("FAITHFULNESS_THRESHOLD", str(FAITHFULNESS_THRESHOLD)))
     results = []
     for sent in sentences:
         scores = []
@@ -141,7 +142,7 @@ def check_faithfulness(answer: str, context: list[dict]) -> dict:
         max_score = max(scores) if scores else 0.0
         results.append({
             "text": sent,
-            "supported": max_score >= FAITHFULNESS_THRESHOLD,
+            "supported": max_score >= threshold,
             "max_score": round(max_score, 3)
         })
 

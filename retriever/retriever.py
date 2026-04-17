@@ -34,7 +34,8 @@ MAX_RESULTS     = 10000
 BATCH_SIZE_API  = 200
 BATCH_SIZE_ENC  = 256
 EMBED_MODEL     = os.getenv("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
-BM25_ALPHA      = float(os.getenv("BM25_ALPHA", "0.5"))
+# Default fusion weight; actual value is read per retrieve() so ablations can vary BM25_ALPHA without reloading.
+BM25_ALPHA_DEFAULT = float(os.getenv("BM25_ALPHA", "0.5"))
 
 RAW_FILE        = os.getenv("RAW_FILE", "raw_abstracts.json")
 ABSTRACTS_FILE  = os.getenv("ABSTRACTS_FILE", "abstracts.json")
@@ -212,7 +213,9 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
     for score, idx in zip(scores[0], indices[0]):
         dense_scores[idx] = float(score)
 
-    hybrid_scores = BM25_ALPHA * bm25_scores + (1 - BM25_ALPHA) * dense_scores
+    alpha = float(os.getenv("BM25_ALPHA", str(BM25_ALPHA_DEFAULT)))
+    alpha = min(1.0, max(0.0, alpha))
+    hybrid_scores = alpha * bm25_scores + (1 - alpha) * dense_scores
     top_indices = np.argsort(hybrid_scores)[::-1][:top_k]
 
     return [

@@ -1,47 +1,105 @@
+"""
+End-to-end RAG pipeline (Part A — integration layer).
+
+retrieve(query, top_k)  →  generator.run (generate_answer + check_faithfulness)
+"""
+from __future__ import annotations
+
+import logging
 import os
+
 from generator import run as generate
+
+logger = logging.getLogger(__name__)
 
 TOP_K = int(os.getenv("TOP_K", "5"))
 
 # ---------------------------------------------------------------------------
-# Retriever interface — falls back to mock if retriever indexes aren't built yet
+# Retriever: Part B `retrieve()` when indexes exist; lazy-import to avoid
+# loading FAISS / sentence-transformers when using mock-only mode.
 # Signature: retrieve(query: str, top_k: int) -> list[dict]
-# Each result: {"pmid": str, "text": str, "score": float, ...}
 # ---------------------------------------------------------------------------
 
+_NOT_LOADED = object()
+_real_retrieve: object | None = _NOT_LOADED
+_real_retrieve_error: str | None = None
+
+
+def _try_load_retriever():
+    global _real_retrieve, _real_retrieve_error
+    if _real_retrieve is not _NOT_LOADED:
+        return
+    try:
+        from retriever.retriever import retrieve as fn
+
+        _real_retrieve = fn
+        _real_retrieve_error = None
+    except Exception as exc:  # pragma: no cover - optional heavy deps
+        _real_retrieve = None
+        _real_retrieve_error = str(exc)
+
+
 def _mock_retrieve(query: str, top_k: int) -> list[dict]:
-    """Fallback retriever for local testing before indexes are built."""
+    """Fallback retriever for demos before indexes are built."""
+    _ = query
     return [
         {
             "pmid": "12345678",
-            "text": "Metformin is a first-line medication for type 2 diabetes. "
-                    "It works by decreasing hepatic glucose production and improving insulin sensitivity.",
-            "score": 0.85
+            "text": (
+                "Metformin is a first-line medication for type 2 diabetes. "
+                "It works by decreasing hepatic glucose production and improving insulin sensitivity."
+            ),
+            "score": 0.85,
         },
         {
             "pmid": "87654321",
-            "text": "Clinical trials show metformin reduces HbA1c levels by 1-2% on average. "
-                    "It is generally well tolerated with gastrointestinal side effects being most common.",
-            "score": 0.76
-        }
+            "text": (
+                "Clinical trials show metformin reduces HbA1c levels by 1-2% on average. "
+                "It is generally well tolerated with gastrointestinal side effects being most common."
+            ),
+            "score": 0.76,
+        },
     ][:top_k]
 
 
-try:
-    from retriever.retriever import retrieve as _retrieve
-except ImportError:
-    _retrieve = None
+def _index_files_present() -> bool:
+    chunks = os.getenv("CHUNKS_FILE", "chunks.json")
+    index_path = os.getenv("INDEX_FILE", "faiss.index")
+    return os.path.isfile(chunks) and os.path.isfile(index_path)
 
 
 def retrieve(query: str, top_k: int = TOP_K) -> list[dict]:
-    if _retrieve is not None:
-        return _retrieve(query, top_k)
-    return _mock_retrieve(query, top_k)
+    if os.getenv("USE_MOCK_RETRIEVER", "").strip().lower() in ("1", "true", "yes"):
+        logger.info("Using mock retriever (USE_MOCK_RETRIEVER).")
+        return _mock_retrieve(query, top_k)
+
+    if not _index_files_present():
+        logger.warning(
+            "Retriever indexes not found (need %s + %s); using mock retriever.",
+            os.getenv("CHUNKS_FILE", "chunks.json"),
+            os.getenv("INDEX_FILE", "faiss.index"),
+        )
+        return _mock_retrieve(query, top_k)
+
+    _try_load_retriever()
+    if _real_retrieve is None:
+        logger.warning(
+            "Retriever import failed (%s); using mock retriever.",
+            _real_retrieve_error or "unknown",
+        )
+        return _mock_retrieve(query, top_k)
+
+    try:
+        return _real_retrieve(query, top_k)  # type: ignore[misc]
+    except Exception:
+        logger.exception("retrieve() failed; falling back to mock retriever.")
+        return _mock_retrieve(query, top_k)
 
 
 # ---------------------------------------------------------------------------
 # Main pipeline entry point
 # ---------------------------------------------------------------------------
+
 
 def run(query: str) -> dict:
     """
@@ -65,15 +123,16 @@ def run(query: str) -> dict:
 
 
 if __name__ == "__main__":
-    query = "What is the effect of metformin on blood sugar?"
-    result = run(query)
+    logging.basicConfig(level=logging.INFO)
+    q = "What is the effect of metformin on blood sugar?"
+    out = run(q)
 
-    print(f"Query: {result['query']}\n")
-    print(f"Answer: {result['answer']}\n")
-    print(f"Citations: {result['citations']}")
-    print(f"Fallback: {result['fallback']}")
-    print(f"Faithfulness rate: {result['faithfulness']['overall_rate']}\n")
+    print(f"Query: {out['query']}\n")
+    print(f"Answer: {out['answer']}\n")
+    print(f"Citations: {out['citations']}")
+    print(f"Fallback: {out['fallback']}")
+    print(f"Faithfulness rate: {out['faithfulness']['overall_rate']}\n")
     print("Per-sentence breakdown:")
-    for s in result["faithfulness"]["sentences"]:
+    for s in out["faithfulness"]["sentences"]:
         status = "supported" if s["supported"] else "UNSUPPORTED"
         print(f"  [{status}] ({s['max_score']}) {s['text']}")

@@ -14,156 +14,143 @@ User query → Hybrid Retriever (BM25 + Dense) → Local LLM (Ollama) → Faithf
 
 ---
 
-## Requirements
+## System architecture
 
-- Docker
-- A GCP instance with at least 16GB RAM (GPU recommended)
-- Or: local machine with 8GB+ RAM for development
+Diagram source (Mermaid): [`diagrams/system_architecture.mmd`](diagrams/system_architecture.mmd). Preview in the IDE or export to PNG with the [Mermaid CLI](https://github.com/mermaid-js/mermaid-cli).
 
 ---
 
-## Quickstart
+## Requirements
 
-### 1. Clone the repository
+- Docker (recommended for a one-command demo)
+- A GCP VM with **≥16 GB RAM** (GPU optional; CPU is fine for smaller models)
+- Or a local machine with **≥8 GB RAM** plus Ollama for development
+
+---
+
+## Quickstart (Docker)
+
+### 1. Clone and configure
 
 ```bash
 git clone https://github.com/your-org/pubmed-rag.git
 cd pubmed-rag
-```
-
-### 2. Set up environment variables
-
-```bash
 cp .env.example .env
-# edit .env if needed — defaults work out of the box
 ```
 
-### 3. Build and run with Docker
+### 2. Demo without PubMed indexes (mock retriever)
 
 ```bash
 docker build -t pubmed-rag .
-docker run --env-file .env -p 8501:8501 pubmed-rag
+docker run --rm --env-file .env -e USE_MOCK_RETRIEVER=1 -p 8501:8501 pubmed-rag
 ```
 
-On first run, the container will:
-1. Pull the LLM model via Ollama (~5GB, one-time download)
-2. Download and index PubMed abstracts (~10k records)
-3. Start the Streamlit frontend on port 8501
+First boot downloads Ollama weights and the Hugging Face NLI model (one-time, several GB). Open `http://localhost:8501`.
 
-Open your browser at `http://localhost:8501`
+### 3. Full stack with hybrid retrieval
 
----
-
-## Running Without Docker (Development)
-
-### 1. Install dependencies
+Build indexes on the host, then mount them:
 
 ```bash
 pip install -r requirements.txt
+python -m retriever.retriever
+docker build -t pubmed-rag .
+docker run --rm --env-file .env -p 8501:8501 \
+  -v "$(pwd)/chunks.json:/app/chunks.json:ro" \
+  -v "$(pwd)/faiss.index:/app/faiss.index:ro" \
+  pubmed-rag
 ```
 
-### 2. Start Ollama and pull the model
-
-```bash
-curl -fsSL https://ollama.com/install.sh | sh
-ollama pull qwen3:4b
-ollama serve
-```
-
-### 3. Download and index data
-
-```bash
-python data/download_pubmed.py      # downloads 10k+ abstracts from PubMed
-python data/preprocess.py           # chunks, embeds, and builds FAISS index
-```
-
-### 4. Run the app
-
-```bash
-streamlit run app.py
-```
+Or set `BUILD_RETRIEVAL_INDEX=1` in `.env` so the container runs `python -m retriever.retriever` on startup (slow; needs stable outbound network).
 
 ---
 
-## Environment Variables
+## Running without Docker
+
+```bash
+pip install -r requirements.txt
+ollama serve
+ollama pull qwen3:4b
+python -m retriever.retriever
+streamlit run app.py --server.port 8501
+```
+
+CLI smoke test: `python pipeline.py`.
+
+---
+
+## GCP (demo day)
+
+1. Use an Ubuntu (or similar) VM with **≥16 GB RAM**; attach a **static external IP** if the demo URL must stay fixed.
+2. In VPC networking / firewalls, allow **ingress TCP 8501** to the instance (scoped to your class IPs, or `0.0.0.0/0` for an open class demo).
+3. Install Docker, clone the repo, `docker build` / `docker run` with `-p 8501:8501`. Ollama listens on `127.0.0.1` inside the VM; only Streamlit needs to be reachable on the public IP.
+4. Optional GPU: install the NVIDIA driver and [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html), then `docker run --gpus all ...`.
+
+---
+
+## Environment variables
 
 | Variable | Default | Description |
 |---|---|---|
-| `OLLAMA_MODEL` | `qwen3:4b` | Local model served by Ollama |
-| `OLLAMA_URL` | `http://localhost:11434/api/generate` | Ollama API endpoint |
-| `FAITHFULNESS_THRESHOLD` | `0.5` | NLI entailment score cutoff |
-| `MIN_RETRIEVAL_SCORE` | `0.3` | Minimum retrieval score before fallback |
-| `MAX_TOKENS` | `300` | Max tokens in generated answer |
-| `TOP_K` | `5` | Number of passages retrieved per query |
+| `OLLAMA_MODEL` | `qwen3:4b` | Model used via Ollama |
+| `OLLAMA_URL` | `http://localhost:11434/api/generate` | Ollama generate endpoint |
+| `FAITHFULNESS_THRESHOLD` | `0.5` | NLI entailment cutoff per sentence |
+| `MIN_RETRIEVAL_SCORE` | `0.3` | Minimum top retrieval score before generator fallback |
+| `MAX_TOKENS` | `300` | `num_predict` cap for Ollama |
+| `TOP_K` | `5` | Passages fed to the generator |
+| `BM25_ALPHA` | `0.5` | Hybrid fusion (`1` = BM25 only, `0` = dense only) |
+| `CHUNKS_FILE` / `INDEX_FILE` | `chunks.json` / `faiss.index` | Paths checked before calling the real retriever |
+| `USE_MOCK_RETRIEVER` | `0` | Set to `1` to force mock passages |
+| `BUILD_RETRIEVAL_INDEX` | `0` | Set to `1` in Docker to auto-build indexes at startup |
 
 ---
 
-## Project Structure
+## Project structure
 
 ```
 pubmed-rag/
-├── app.py                  # Streamlit frontend
-├── pipeline.py             # end-to-end query pipeline
-├── requirements.txt
+├── app.py
+├── pipeline.py
 ├── Dockerfile
 ├── entrypoint.sh
+├── requirements.txt
 ├── .env.example
-│
-├── data/
-│   ├── download_pubmed.py  # fetches abstracts via NLM E-utilities API
-│   └── preprocess.py       # chunking, embedding, FAISS index creation
-│
+├── diagrams/
+│   └── system_architecture.mmd
 ├── retriever/
-│   ├── bm25.py             # sparse BM25 baseline
-│   ├── dense.py            # BioBERT dense retrieval
-│   ├── hybrid.py           # BM25 + dense score fusion
-│   └── retriever.py        # unified retrieve(query, top_k) interface
-│
+│   └── retriever.py          # ingest + retrieve(query, top_k)
 ├── generator/
-│   └── generator.py        # LLM generation + NLI faithfulness check
-│
-├── evaluation/
-│   ├── bioasq_eval.py      # EM, F1, Recall@k, faithfulness rate
-│   └── eda.py              # corpus analysis charts
-│
-└── diagrams/
-    └── system_diagram.png  # system architecture diagram
+│   └── generator.py          # generate_answer, check_faithfulness
+└── evaluation/
+    └── ablation_smoke.py     # four-branch smoke table + JSON
 ```
 
 ---
 
 ## Data
 
-Abstracts are downloaded automatically from [PubMed](https://pubmed.ncbi.nlm.nih.gov/) via the [NLM E-utilities API](https://www.ncbi.nlm.nih.gov/books/NBK25497/). No manual download required.
+`python -m retriever.retriever` downloads PubMed XML via the [NLM E-utilities API](https://www.ncbi.nlm.nih.gov/books/NBK25497/), parses abstracts, chunks by sentence, and builds a FAISS index. The search query and `MAX_RESULTS` are configured at the top of `retriever/retriever.py`. Step 1 is rate-limited; a 10k crawl can take tens of minutes.
 
-- Source: PubMed / NCBI NLM
-- Scale: 10,000+ abstracts
-- Topics: configurable via MeSH terms in `data/download_pubmed.py`
-- Each chunk stores: PMID, passage text, position in abstract, year, MeSH tags
-
-Evaluation uses the [BioASQ](http://bioasq.org/) dataset for question answering benchmarks.
+Chunks carry PMID, sentence text, position, year, and MeSH terms. Full BioASQ benchmarks can be plugged in by the evaluation teammate; this repo ships a **smoke ablation** runner for integration.
 
 ---
 
-## Evaluation
+## Ablation coordination
 
-To run the full evaluation suite against BioASQ:
+Four integration branches (BM25-only, dense-only, hybrid, hybrid + stricter NLI) share one command. JSON is written to `evaluation/ablation_smoke_results.json` and a Markdown table is printed.
 
 ```bash
-python evaluation/bioasq_eval.py
+python evaluation/ablation_smoke.py
 ```
 
-Outputs: Exact Match, F1, Recall@5, and faithfulness rate across retrieval strategies.
+When the mock retriever is active, changing `BM25_ALPHA` does not change passages; use real indexes to measure retrieval differences. Replace the placeholders below with team metrics (e.g. BioASQ EM / F1 / Recall@k) when available.
 
 | Strategy | Recall@5 | F1 | Faithfulness |
 |---|---|---|---|
-| BM25 baseline | TBD | TBD | TBD |
-| Dense retrieval (BioBERT) | TBD | TBD | TBD |
-| Hybrid (BM25 + Dense) | TBD | TBD | TBD |
-| Hybrid + Reranker | TBD | TBD | TBD |
-| Hybrid + Reranker + Faithfulness filter | TBD | TBD | TBD |
-
-*Results populated after ablation experiments.*
+| BM25-only (`BM25_ALPHA=1`) | TBD | TBD | TBD |
+| Dense-only (`BM25_ALPHA=0`) | TBD | TBD | TBD |
+| Hybrid (`BM25_ALPHA=0.5`) | TBD | TBD | TBD |
+| Hybrid + strict NLI (`ABLATION_STRICT_NLI`) | TBD | TBD | TBD |
 
 ---
 

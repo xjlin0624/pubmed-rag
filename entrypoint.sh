@@ -1,25 +1,43 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
-# Start Ollama in the background
+cleanup() {
+  if [[ -n "${OLLAMA_PID:-}" ]] && kill -0 "${OLLAMA_PID}" 2>/dev/null; then
+    kill "${OLLAMA_PID}" 2>/dev/null || true
+  fi
+}
+trap cleanup EXIT
+
+echo "[entrypoint] Starting Ollama..."
 ollama serve &
 OLLAMA_PID=$!
 
-# Wait until Ollama is ready
-echo "Waiting for Ollama to start..."
-until curl -s http://localhost:11434 > /dev/null; do
-    sleep 1
+echo "[entrypoint] Waiting for Ollama API..."
+until curl -sf "http://127.0.0.1:11434/api/tags" >/dev/null 2>&1; do
+  sleep 1
 done
-echo "Ollama is ready."
+echo "[entrypoint] Ollama is ready."
 
-# Pull the model if not already present
-MODEL=${OLLAMA_MODEL:-qwen3:4b}
-echo "Pulling model: $MODEL"
-ollama pull "$MODEL"
+MODEL="${OLLAMA_MODEL:-qwen3:4b}"
+echo "[entrypoint] Ensuring model is pulled: ${MODEL}"
+ollama pull "${MODEL}"
 
-# Launch the app
-echo "Starting app..."
-streamlit run app.py --server.port 8501 --server.address 0.0.0.0 &
+if [[ "${BUILD_RETRIEVAL_INDEX:-0}" == "1" ]]; then
+  CHUNKS="${CHUNKS_FILE:-chunks.json}"
+  INDEX="${INDEX_FILE:-faiss.index}"
+  if [[ ! -f "${CHUNKS}" ]] || [[ ! -f "${INDEX}" ]]; then
+    echo "[entrypoint] BUILD_RETRIEVAL_INDEX=1 — running retriever index build (needs network)..."
+    python -m retriever.retriever || {
+      echo "[entrypoint] Index build failed; pipeline will use mock retriever until indexes exist."
+    }
+  else
+    echo "[entrypoint] Index files already present; skipping build."
+  fi
+fi
 
-# Keep container alive; shut down Ollama on exit
-wait $OLLAMA_PID
+echo "[entrypoint] Launching Streamlit on 0.0.0.0:8501"
+exec streamlit run app.py \
+  --server.port 8501 \
+  --server.address 0.0.0.0 \
+  --server.headless true \
+  --browser.gatherUsageStats false
