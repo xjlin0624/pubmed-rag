@@ -134,7 +134,8 @@ def check_faithfulness(answer: str, context: list[dict]) -> dict:
                 output = nli(
                     f"{passage} [SEP] {sent}",
                     truncation=True,
-                    max_length=512
+                    max_length=512,
+                    top_k=None
                 )
                 entail_score = next(
                     (r["score"] for r in output if r["label"].upper() == "ENTAILMENT"),
