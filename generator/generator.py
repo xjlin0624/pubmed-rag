@@ -137,7 +137,7 @@ def check_faithfulness(answer: str, context: list[dict]) -> dict:
                     max_length=512
                 )
                 entail_score = next(
-                    (r["score"] for r in output if r["label"] == "ENTAILMENT"),
+                    (r["score"] for r in output if r["label"].upper() == "ENTAILMENT"),
                     0.0
                 )
                 scores.append(entail_score)
