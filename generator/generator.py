@@ -133,7 +133,7 @@ def check_faithfulness(answer: str, context: list[dict]) -> dict:
         for passage in passages:
             try:
                 output = nli(
-                    f"{passage} [SEP] {sent_clean}",
+                    {"text": passage, "text_pair": sent_clean},
                     truncation=True,
                     max_length=512,
                     top_k=None
