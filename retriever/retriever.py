@@ -33,7 +33,7 @@ SEARCH_QUERY    = "diabetes"
 MAX_RESULTS     = 10000
 BATCH_SIZE_API  = 200
 BATCH_SIZE_ENC  = 256
-EMBED_MODEL     = os.getenv("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
+EMBED_MODEL     = os.getenv("EMBED_MODEL", "ncbi/MedCPT-Article-Encoder")
 # Default fusion weight; actual value is read per retrieve() so ablations can vary BM25_ALPHA without reloading.
 BM25_ALPHA_DEFAULT = float(os.getenv("BM25_ALPHA", "0.5"))
 
@@ -148,13 +148,34 @@ def step3_chunk():
     print(f"Saved → {CHUNKS_FILE}")
 
 
+# ── Embedding model loader ─────────────────────────────────────────────────────
+
+def _load_embed_model(name: str) -> SentenceTransformer:
+    """Load a SentenceTransformer-compatible embedding model.
+
+    MedCPT models (ncbi/MedCPT-*) are plain HuggingFace transformers that use
+    CLS-token pooling and cannot be loaded directly via SentenceTransformer(name).
+    All other models fall through to the standard path.
+    """
+    if "MedCPT" in name:
+        from sentence_transformers import models as st_models
+        transformer = st_models.Transformer(name, max_seq_length=512)
+        pooling = st_models.Pooling(
+            transformer.get_word_embedding_dimension(),
+            pooling_mode_cls_token=True,
+            pooling_mode_mean_tokens=False,
+        )
+        return SentenceTransformer(modules=[transformer, pooling])
+    return SentenceTransformer(name)
+
+
 # ── Step 4: Build Vector Index ─────────────────────────────────────────────────
 
 def step4_build_index():
     print("\n── Step 4: Building Vector Index ────────────────────────────────")
     with open(CHUNKS_FILE, "r") as f:
         chunks = json.load(f)
-    model = SentenceTransformer(EMBED_MODEL)
+    model = _load_embed_model(EMBED_MODEL)
     texts = [chunk["text"] for chunk in chunks]
     embeddings = model.encode(texts, batch_size=BATCH_SIZE_ENC, show_progress_bar=True, convert_to_numpy=True)
     faiss.normalize_L2(embeddings)

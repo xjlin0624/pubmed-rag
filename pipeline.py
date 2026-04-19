@@ -13,6 +13,8 @@ from generator import run as generate
 logger = logging.getLogger(__name__)
 
 TOP_K = int(os.getenv("TOP_K", "5"))
+MAX_ITER = int(os.getenv("MAX_ITER", "2"))
+FAITHFULNESS_THRESHOLD = float(os.getenv("FAITHFULNESS_THRESHOLD", "0.5"))
 
 # ---------------------------------------------------------------------------
 # Retriever: Part B `retrieve()` when indexes exist; lazy-import to avoid
@@ -103,7 +105,8 @@ def retrieve(query: str, top_k: int = TOP_K) -> list[dict]:
 
 def run(query: str) -> dict:
     """
-    End-to-end pipeline: retrieve → generate → faithfulness check.
+    End-to-end pipeline: retrieve → generate → faithfulness check,
+    with iterative re-retrieval on unsupported sentences (up to MAX_ITER rounds).
 
     Args:
         query: User's natural language question.
@@ -117,8 +120,35 @@ def run(query: str) -> dict:
             faithfulness: {sentences, overall_rate}
         }
     """
+    threshold = float(os.getenv("FAITHFULNESS_THRESHOLD", str(FAITHFULNESS_THRESHOLD)))
+    max_iter = int(os.getenv("MAX_ITER", str(MAX_ITER)))
+
     context = retrieve(query, top_k=TOP_K)
     result = generate(query, context)
+
+    for _ in range(max_iter):
+        if result.get("fallback"):
+            break
+        faith = result.get("faithfulness", {})
+        if faith.get("overall_rate", 1.0) >= threshold:
+            break
+
+        unsupported = [
+            s["text"] for s in faith.get("sentences", [])
+            if not s["supported"]
+        ]
+        if not unsupported:
+            break
+
+        seen_pmids = {c["pmid"] for c in context}
+        for sub_query in unsupported:
+            for chunk in retrieve(sub_query, top_k=3):
+                if chunk["pmid"] not in seen_pmids:
+                    context.append(chunk)
+                    seen_pmids.add(chunk["pmid"])
+
+        result = generate(query, context)
+
     return {"query": query, **result}
 
 
