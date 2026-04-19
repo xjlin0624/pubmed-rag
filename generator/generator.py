@@ -64,7 +64,8 @@ Answer:"""
                 "stream": False,
                 "options": {
                     "num_predict": MAX_TOKENS,
-                    "temperature": 0.1
+                    "temperature": 0.1,
+                    "think": False
                 }
             },
             timeout=120

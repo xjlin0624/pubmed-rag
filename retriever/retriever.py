@@ -158,12 +158,11 @@ def _load_embed_model(name: str) -> SentenceTransformer:
     All other models fall through to the standard path.
     """
     if "MedCPT" in name:
-        from sentence_transformers import models as st_models
-        transformer = st_models.Transformer(name, max_seq_length=512)
-        pooling = st_models.Pooling(
-            transformer.get_word_embedding_dimension(),
-            pooling_mode_cls_token=True,
-            pooling_mode_mean_tokens=False,
+        from sentence_transformers.sentence_transformer import modules as st_modules
+        transformer = st_modules.Transformer(name, max_seq_length=512)
+        pooling = st_modules.Pooling(
+            transformer.get_embedding_dimension(),
+            pooling_mode="cls",
         )
         return SentenceTransformer(modules=[transformer, pooling])
     return SentenceTransformer(name)
