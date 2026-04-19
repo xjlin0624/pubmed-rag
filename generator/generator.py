@@ -62,16 +62,18 @@ Answer:"""
                 "model": MODEL,
                 "prompt": prompt,
                 "stream": False,
+                "think": False,
                 "options": {
                     "num_predict": MAX_TOKENS,
                     "temperature": 0.1,
-                    "think": False
                 }
             },
             timeout=120
         )
         resp.raise_for_status()
-        answer = resp.json()["response"].strip()
+        import re as _re
+        raw = resp.json()["response"]
+        answer = _re.sub(r"<think>.*?</think>", "", raw, flags=_re.DOTALL).strip()
     except requests.exceptions.Timeout:
         return {
             "answer": "Request timed out. The model took too long to respond.",
