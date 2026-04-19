@@ -3,7 +3,7 @@ import re
 import requests
 from transformers import pipeline
 
-OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/chat")
 MODEL = os.getenv("OLLAMA_MODEL", "qwen3:4b")
 FAITHFULNESS_THRESHOLD = float(os.getenv("FAITHFULNESS_THRESHOLD", "0.5"))
 MIN_RETRIEVAL_SCORE = float(os.getenv("MIN_RETRIEVAL_SCORE", "0.3"))
@@ -44,38 +44,42 @@ def generate_answer(query: str, context: list[dict]) -> dict:
         for i, r in enumerate(context)
     )
 
-    prompt = f"""/no_think
-You are a medical literature assistant. Answer the question using ONLY the abstracts provided below.
-Cite sources inline using [1], [2], etc. corresponding to the passage numbers.
-If the answer cannot be found in the passages, say exactly: "Insufficient information in retrieved sources."
-Do not speculate or add information beyond what is in the passages.
-Give a direct, concise answer. Do not explain your reasoning process.
-
-Passages:
+    user_message = f"""Passages:
 {context_text}
 
-Question: {query}
-Answer:"""
+Question: {query}"""
 
     try:
         resp = requests.post(
             OLLAMA_URL,
             json={
                 "model": MODEL,
-                "prompt": prompt,
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": (
+                            "You are a medical literature assistant. "
+                            "Answer the question using ONLY the abstracts provided. "
+                            "Cite sources inline using [1], [2], etc. "
+                            "If the answer cannot be found, say exactly: "
+                            "'Insufficient information in retrieved sources.' "
+                            "Give a direct answer. Do not explain your reasoning."
+                        ),
+                    },
+                    {"role": "user", "content": user_message},
+                ],
                 "stream": False,
                 "think": False,
                 "options": {
                     "num_predict": MAX_TOKENS,
                     "temperature": 0.1,
-                }
+                },
             },
-            timeout=120
+            timeout=120,
         )
         resp.raise_for_status()
-        import re as _re
-        raw = resp.json()["response"]
-        answer = _re.sub(r"<think>.*?</think>", "", raw, flags=_re.DOTALL).strip()
+        raw = resp.json()["message"]["content"]
+        answer = re.sub(r"<think>.*?</think>", "", raw, flags=re.DOTALL).strip()
     except requests.exceptions.Timeout:
         return {
             "answer": "Request timed out. The model took too long to respond.",
