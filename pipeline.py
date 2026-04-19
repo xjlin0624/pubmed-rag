@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 TOP_K = int(os.getenv("TOP_K", "5"))
 MAX_ITER = int(os.getenv("MAX_ITER", "2"))
+MAX_CONTEXT = int(os.getenv("MAX_CONTEXT", "15"))
 FAITHFULNESS_THRESHOLD = float(os.getenv("FAITHFULNESS_THRESHOLD", "0.5"))
 
 # ---------------------------------------------------------------------------
@@ -140,10 +141,13 @@ def run(query: str) -> dict:
         if not unsupported:
             break
 
+        max_context = int(os.getenv("MAX_CONTEXT", str(MAX_CONTEXT)))
         seen_pmids = {c["pmid"] for c in context}
         for sub_query in unsupported:
+            if len(context) >= max_context:
+                break
             for chunk in retrieve(sub_query, top_k=3):
-                if chunk["pmid"] not in seen_pmids:
+                if chunk["pmid"] not in seen_pmids and len(context) < max_context:
                     context.append(chunk)
                     seen_pmids.add(chunk["pmid"])
 

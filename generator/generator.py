@@ -44,10 +44,12 @@ def generate_answer(query: str, context: list[dict]) -> dict:
         for i, r in enumerate(context)
     )
 
-    prompt = f"""You are a medical literature assistant. Answer the question using ONLY the abstracts provided below.
+    prompt = f"""/no_think
+You are a medical literature assistant. Answer the question using ONLY the abstracts provided below.
 Cite sources inline using [1], [2], etc. corresponding to the passage numbers.
 If the answer cannot be found in the passages, say exactly: "Insufficient information in retrieved sources."
 Do not speculate or add information beyond what is in the passages.
+Give a direct, concise answer. Do not explain your reasoning process.
 
 Passages:
 {context_text}
