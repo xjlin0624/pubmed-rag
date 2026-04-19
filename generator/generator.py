@@ -59,17 +59,13 @@ Question: {query}"""
                         "role": "system",
                         "content": (
                             "You are a medical literature assistant. "
-                            "Answer the question using ONLY the abstracts provided. "
-                            "Cite sources inline using [1], [2], etc. "
-                            "If the answer cannot be found, say exactly: "
-                            "'Insufficient information in retrieved sources.' "
-                            "Give a direct answer. Do not explain your reasoning."
+                            "Write a concise 2-3 sentence answer using ONLY the passages given. "
+                            "Cite with [1], [2], etc. Output the answer only — no reasoning, no analysis, no preamble."
                         ),
                     },
                     {"role": "user", "content": user_message},
                 ],
                 "stream": False,
-                "think": False,
                 "options": {
                     "num_predict": MAX_TOKENS,
                     "temperature": 0.1,
