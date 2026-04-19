@@ -6,10 +6,11 @@ A retrieval-augmented generation (RAG) system for answering medical questions gr
 
 ## Overview
 
-This system retrieves relevant PubMed abstracts for a user query and generates a cited, faithful answer using a locally-served LLM. Every claim in the generated answer is verified against retrieved passages using an NLI-based faithfulness checker.
+This system retrieves relevant PubMed abstracts for a user query and generates a cited, faithful answer using a locally-served LLM. Every claim in the generated answer is verified against retrieved passages using an NLI-based faithfulness checker. If the answer is not sufficiently supported, the pipeline iteratively re-retrieves additional context using unsupported sentences as follow-up queries.
 
 ```
-User query → Hybrid Retriever (BM25 + Dense) → Local LLM (Ollama) → Faithfulness Check → Cited Answer
+User query → Hybrid Retriever (BM25 + MedCPT Dense) → Local LLM (Ollama/qwen2.5:7b)
+           → Faithfulness Check (NLI) → [Re-retrieve if needed] → Cited Answer
 ```
 
 ---
@@ -70,7 +71,7 @@ Or set `BUILD_RETRIEVAL_INDEX=1` in `.env` so the container runs `python -m retr
 ```bash
 pip install -r requirements.txt
 ollama serve
-ollama pull qwen3:4b
+ollama pull qwen2.5:7b
 python -m retriever.retriever
 streamlit run app.py --server.port 8501
 ```
@@ -92,13 +93,16 @@ CLI smoke test: `python pipeline.py`.
 
 | Variable | Default | Description |
 |---|---|---|
-| `OLLAMA_MODEL` | `qwen3:4b` | Model used via Ollama |
-| `OLLAMA_URL` | `http://localhost:11434/api/generate` | Ollama generate endpoint |
-| `FAITHFULNESS_THRESHOLD` | `0.5` | NLI entailment cutoff per sentence |
+| `OLLAMA_MODEL` | `qwen2.5:7b` | Model used via Ollama |
+| `OLLAMA_URL` | `http://localhost:11434/api/chat` | Ollama chat endpoint |
+| `FAITHFULNESS_THRESHOLD` | `0.3` | NLI entailment cutoff per sentence |
 | `MIN_RETRIEVAL_SCORE` | `0.3` | Minimum top retrieval score before generator fallback |
 | `MAX_TOKENS` | `300` | `num_predict` cap for Ollama |
-| `TOP_K` | `5` | Passages fed to the generator |
+| `TOP_K` | `5` | Passages fed to the generator per retrieval round |
+| `MAX_ITER` | `2` | Max iterative re-retrieval rounds when faithfulness is low |
+| `MAX_CONTEXT` | `15` | Max total passages across all retrieval rounds |
 | `BM25_ALPHA` | `0.5` | Hybrid fusion (`1` = BM25 only, `0` = dense only) |
+| `EMBED_MODEL` | `ncbi/MedCPT-Article-Encoder` | Sentence embedding model for dense retrieval |
 | `CHUNKS_FILE` / `INDEX_FILE` | `chunks.json` / `faiss.index` | Paths checked before calling the real retriever |
 | `USE_MOCK_RETRIEVER` | `0` | Set to `1` to force mock passages |
 | `BUILD_RETRIEVAL_INDEX` | `0` | Set to `1` in Docker to auto-build indexes at startup |
@@ -122,35 +126,42 @@ pubmed-rag/
 ├── generator/
 │   └── generator.py          # generate_answer, check_faithfulness
 └── evaluation/
-    └── ablation_smoke.py     # four-branch smoke table + JSON
+    ├── ablation_smoke.py     # four-branch smoke table + JSON
+    ├── bioasq_eval.py        # BioASQ EM / F1 / Recall@k metrics
+    ├── eda.py                # corpus EDA (matplotlib)
+    └── eda_streamlit.py      # interactive EDA dashboard
 ```
 
 ---
 
 ## Data
 
-`python -m retriever.retriever` downloads PubMed XML via the [NLM E-utilities API](https://www.ncbi.nlm.nih.gov/books/NBK25497/), parses abstracts, chunks by sentence, and builds a FAISS index. The search query and `MAX_RESULTS` are configured at the top of `retriever/retriever.py`. Step 1 is rate-limited; a 10k crawl can take tens of minutes.
+`python -m retriever.retriever` downloads PubMed XML via the [NLM E-utilities API](https://www.ncbi.nlm.nih.gov/books/NBK25497/), parses abstracts, chunks by sentence, and builds a FAISS index using [MedCPT-Article-Encoder](https://huggingface.co/ncbi/MedCPT-Article-Encoder) embeddings. The search query and `MAX_RESULTS` are configured at the top of `retriever/retriever.py`. Step 1 is rate-limited; a 10k crawl can take tens of minutes.
 
-Chunks carry PMID, sentence text, position, year, and MeSH terms. Full BioASQ benchmarks can be plugged in by the evaluation teammate; this repo ships a **smoke ablation** runner for integration.
+**Runtime files needed** (build once, copy to demo machine):
+- `chunks.json` (~35 MB) — sentence chunks with metadata
+- `faiss.index` (~137 MB) — MedCPT dense index
+
+Chunks carry PMID, sentence text, position, year, and MeSH terms. Full BioASQ benchmarks can be plugged in via `evaluation/bioasq_eval.py`.
 
 ---
 
-## Ablation coordination
+## Ablation results
 
-Four integration branches (BM25-only, dense-only, hybrid, hybrid + stricter NLI) share one command. JSON is written to `evaluation/ablation_smoke_results.json` and a Markdown table is printed.
+Four configurations tested on the diabetes corpus:
+
+| Strategy | Faithfulness |
+|---|---|
+| BM25-only (`BM25_ALPHA=1`) | 0.0 |
+| Dense-only (`BM25_ALPHA=0`) | 1.0 |
+| Hybrid (`BM25_ALPHA=0.5`) | 1.0 |
+| Hybrid + strict NLI (`ABLATION_STRICT_NLI=0.75`) | 0.0 |
+
+Full results in `evaluation/ablation_smoke_results.json`. BioASQ EM / F1 / Recall@k metrics: TBD.
 
 ```bash
-python evaluation/ablation_smoke.py
+python -m evaluation.ablation_smoke
 ```
-
-When the mock retriever is active, changing `BM25_ALPHA` does not change passages; use real indexes to measure retrieval differences. Replace the placeholders below with team metrics (e.g. BioASQ EM / F1 / Recall@k) when available.
-
-| Strategy | Recall@5 | F1 | Faithfulness |
-|---|---|---|---|
-| BM25-only (`BM25_ALPHA=1`) | TBD | TBD | TBD |
-| Dense-only (`BM25_ALPHA=0`) | TBD | TBD | TBD |
-| Hybrid (`BM25_ALPHA=0.5`) | TBD | TBD | TBD |
-| Hybrid + strict NLI (`ABLATION_STRICT_NLI`) | TBD | TBD | TBD |
 
 ---
 
@@ -170,5 +181,6 @@ When the mock retriever is active, changing `BM25_ALPHA` does not change passage
 - [PubMed / NLM E-utilities](https://www.ncbi.nlm.nih.gov/books/NBK25497/) — abstract corpus
 - [BioASQ](http://bioasq.org/) — evaluation dataset
 - [Ollama](https://ollama.com/) — local LLM serving
-- [Qwen3](https://huggingface.co/Qwen) — base language model
+- [Qwen2.5](https://huggingface.co/Qwen) — base language model
+- [ncbi/MedCPT-Article-Encoder](https://huggingface.co/ncbi/MedCPT-Article-Encoder) — domain-specific biomedical embeddings
 - [cross-encoder/nli-MiniLM2-L6-H768](https://huggingface.co/cross-encoder/nli-MiniLM2-L6-H768) — faithfulness NLI model

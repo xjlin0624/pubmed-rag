@@ -1,13 +1,12 @@
 # Module B — Data & Retrieval Pipeline
 
 **Role**: Data & Retrieval Engineer
-**Layer**: 检索层
 
 ---
 
 ## Overview
 
-This module builds the retrieval backbone of the RAG pipeline. It downloads and processes PubMed medical abstracts, chunks them into sentence-level units, and provides a unified hybrid retrieval interface combining BM25 sparse retrieval and Dense vector search.
+This module builds the retrieval backbone of the RAG pipeline. It downloads and processes PubMed medical abstracts, chunks them into sentence-level units, and provides a unified hybrid retrieval interface combining BM25 sparse retrieval and MedCPT dense vector search.
 
 ---
 
@@ -86,7 +85,7 @@ Splits each abstract into sentence-level chunks. Each chunk retains source metad
 - Fields: `pmid`, `year`, `mesh`, `chunk_id`, `position`, `text`
 
 ### Step 4 — Build Vector Index
-Encodes all chunks using `all-MiniLM-L6-v2` and builds a FAISS flat inner product index. Vectors are L2-normalized for cosine similarity. Only needs to be run once.
+Encodes all chunks using [ncbi/MedCPT-Article-Encoder](https://huggingface.co/ncbi/MedCPT-Article-Encoder), a domain-specific biomedical embedding model trained on PubMed retrieval. Builds a FAISS flat inner product index with L2-normalized vectors for cosine similarity. Only needs to be run once (or when the embedding model changes).
 
 - Output: `embeddings.npy`, `faiss.index` (project root)
 
@@ -102,8 +101,8 @@ Loads all indexes and runs a test query through the hybrid retrieval interface. 
 | Raw PMIDs downloaded | ~9,999 |
 | Abstracts with text | ~8,671 |
 | Total sentence chunks | ~89,653 |
-| Embedding dimension | 384 |
-| Embedding model | all-MiniLM-L6-v2 |
+| Embedding dimension | 768 |
+| Embedding model | ncbi/MedCPT-Article-Encoder |
 
 ---
 
@@ -152,7 +151,7 @@ Key parameters at the top of `retriever.py`. Those marked with * are overridable
 | `MAX_RESULTS` | `10000` | No | Maximum PMIDs to fetch |
 | `BATCH_SIZE_API` | `200` | No | Articles per API request |
 | `BATCH_SIZE_ENC` | `256` | No | Chunks per encoding batch |
-| `EMBED_MODEL` | `all-MiniLM-L6-v2` | Yes* | Sentence embedding model |
+| `EMBED_MODEL` | `ncbi/MedCPT-Article-Encoder` | Yes* | Sentence embedding model |
 | `BM25_ALPHA` | `0.5` | Yes* | BM25 weight in hybrid fusion |
 
 ---
@@ -164,6 +163,7 @@ Key parameters at the top of `retriever.py`. Those marked with * are overridable
 - Indexes must be built before the pipeline can serve queries (`--step 0` or steps 1–4)
 - Required files at runtime: `chunks.json`, `faiss.index` (project root)
 - Indexes load once at first `retrieve()` call (~2–3 seconds on GPU)
+- If embedding model changes, Step 4 must be rerun to rebuild `faiss.index`
 
 ### For Module C (Generator)
 
