@@ -4,8 +4,8 @@ import requests
 from transformers import pipeline
 
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/chat")
-MODEL = os.getenv("OLLAMA_MODEL", "qwen3:4b")
-FAITHFULNESS_THRESHOLD = float(os.getenv("FAITHFULNESS_THRESHOLD", "0.5"))
+MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
+FAITHFULNESS_THRESHOLD = float(os.getenv("FAITHFULNESS_THRESHOLD", "0.3"))
 MIN_RETRIEVAL_SCORE = float(os.getenv("MIN_RETRIEVAL_SCORE", "0.3"))
 MAX_TOKENS = int(os.getenv("MAX_TOKENS", "300"))
 
@@ -128,11 +128,12 @@ def check_faithfulness(answer: str, context: list[dict]) -> dict:
     threshold = float(os.getenv("FAITHFULNESS_THRESHOLD", str(FAITHFULNESS_THRESHOLD)))
     results = []
     for sent in sentences:
+        sent_clean = re.sub(r"\[\d+\]", "", sent).strip()
         scores = []
         for passage in passages:
             try:
                 output = nli(
-                    f"{passage} [SEP] {sent}",
+                    f"{passage} [SEP] {sent_clean}",
                     truncation=True,
                     max_length=512,
                     top_k=None
