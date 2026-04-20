@@ -6,7 +6,7 @@ from transformers import pipeline
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/chat")
 MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
 FAITHFULNESS_THRESHOLD = float(os.getenv("FAITHFULNESS_THRESHOLD", "0.3"))
-MIN_RETRIEVAL_SCORE = float(os.getenv("MIN_RETRIEVAL_SCORE", "0.3"))
+MIN_RETRIEVAL_SCORE = float(os.getenv("MIN_RETRIEVAL_SCORE", "-1.0"))
 MAX_TOKENS = int(os.getenv("MAX_TOKENS", "300"))
 
 nli = pipeline(

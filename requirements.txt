@@ -9,3 +9,4 @@ numpy
 tqdm
 pandas
 matplotlib
+datasets

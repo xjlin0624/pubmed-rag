@@ -54,9 +54,7 @@ def run_pipeline_on_dataset(
                 "id": qid,
                 "answer": result.get("answer", ""),
                 "citations": result.get("citations", []),
-                "retrieved_pmids": [c["pmid"] for c in result.get("context", [])]
-                if "context" in result
-                else result.get("citations", []),
+                "retrieved_pmids": result.get("retrieved_pmids", result.get("citations", [])),
                 "faithfulness": result.get("faithfulness", {}),
                 "elapsed_s": round(elapsed, 2),
             }
