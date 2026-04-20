@@ -24,7 +24,7 @@ import faiss
 import numpy as np
 import requests
 from rank_bm25 import BM25Okapi
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer, CrossEncoder
 from tqdm import tqdm
 
 # ── Config ─────────────────────────────────────────────────────────────────────
@@ -34,6 +34,10 @@ MAX_RESULTS     = 10000
 BATCH_SIZE_API  = 200
 BATCH_SIZE_ENC  = 256
 EMBED_MODEL     = os.getenv("EMBED_MODEL", "ncbi/MedCPT-Article-Encoder")
+# Reranker configuration
+RERANKER_MODEL  = os.getenv("RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2")
+RETRIEVAL_TOP_N = int(os.getenv("RETRIEVAL_TOP_N", "20"))
+
 # Default fusion weight; actual value is read per retrieve() so ablations can vary BM25_ALPHA without reloading.
 BM25_ALPHA_DEFAULT = float(os.getenv("BM25_ALPHA", "0.5"))
 
@@ -189,39 +193,50 @@ def step4_build_index():
 
 # ── Step 5: Runtime Retrieval Interface ───────────────────────────────────────
 # Module-level state — loaded once on first retrieve() call
-_bm25   = None
-_chunks = None
-_index  = None
-_model  = None
+_bm25     = None
+_chunks   = None
+_index    = None
+_model    = None
+_reranker = None
 
 
 def _load():
-    global _bm25, _chunks, _index, _model
+    global _bm25, _chunks, _index, _model, _reranker
     with open(CHUNKS_FILE, "r") as f:
         _chunks = json.load(f)
     tokenized = [c["text"].lower().split() for c in _chunks]
     _bm25 = BM25Okapi(tokenized)
     _index = faiss.read_index(INDEX_FILE)
-    _model = SentenceTransformer(EMBED_MODEL)
+    
+    # Fix: Use _load_embed_model to correctly load MedCPT
+    _model = _load_embed_model(EMBED_MODEL)
+    
+    # Initialize Cross-Encoder for reranking
+    print(f"Loading Reranker Model: {RERANKER_MODEL}...")
+    _reranker = CrossEncoder(RERANKER_MODEL, max_length=512)
 
 
 def retrieve(query: str, top_k: int = 5) -> list[dict]:
     """
-    Hybrid BM25 + dense retrieval.
+    Two-stage retrieval: 
+    1. Hybrid BM25 + dense retrieval (fetch TOP_N).
+    2. Cross-Encoder reranking (return top_k).
 
     Args:
         query:  Natural language search query.
-        top_k:  Number of results to return.
+        top_k:  Number of results to return after reranking.
 
     Returns:
         List of dicts: {"pmid": str, "text": str, "score": float, ...}
     """
-    global _bm25, _chunks, _index, _model
+    global _bm25, _chunks, _index, _model, _reranker
     if _bm25 is None:
         _load()
 
     n = len(_chunks)
+    top_n = RETRIEVAL_TOP_N
 
+    # --- Phase 1: Hybrid Coarse Retrieval ---
     bm25_scores = _bm25.get_scores(query.lower().split())
     bm25_max = bm25_scores.max() or 1.0
     bm25_scores = bm25_scores / bm25_max
@@ -229,18 +244,21 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
     dense_scores = np.zeros(n)
     query_vec = _model.encode([query], convert_to_numpy=True)
     faiss.normalize_L2(query_vec)
-    scores, indices = _index.search(query_vec, top_k * 10)
+    # Search wider for coarse retrieval
+    scores, indices = _index.search(query_vec, top_n * 5)
     for score, idx in zip(scores[0], indices[0]):
         dense_scores[idx] = float(score)
 
     alpha = float(os.getenv("BM25_ALPHA", str(BM25_ALPHA_DEFAULT)))
     alpha = min(1.0, max(0.0, alpha))
     hybrid_scores = alpha * bm25_scores + (1 - alpha) * dense_scores
-    top_indices = np.argsort(hybrid_scores)[::-1][:top_k]
+    
+    # Get top N candidates for reranking
+    top_n_indices = np.argsort(hybrid_scores)[::-1][:top_n]
 
-    return [
+    candidates = [
         {
-            "score":    round(float(hybrid_scores[idx]), 4),
+            "hybrid_score": round(float(hybrid_scores[idx]), 4),
             "bm25":     round(float(bm25_scores[idx]), 4),
             "dense":    round(float(dense_scores[idx]), 4),
             "pmid":     _chunks[idx]["pmid"],
@@ -250,8 +268,28 @@ def retrieve(query: str, top_k: int = 5) -> list[dict]:
             "position": _chunks[idx]["position"],
             "text":     _chunks[idx]["text"],
         }
-        for idx in top_indices
+        for idx in top_n_indices
     ]
+
+    # --- Phase 2: Cross-Encoder Reranking ---
+    if not candidates:
+        return []
+
+    # Construct input pairs for Cross-Encoder
+    cross_inp = [[query, c["text"]] for c in candidates]
+    
+    # Batch predict matching scores
+    cross_scores = _reranker.predict(cross_inp)
+    
+    # Assign rerank scores to candidates
+    for i, score in enumerate(cross_scores):
+        candidates[i]["score"] = float(score)
+    
+    # Final sort based on rerank scores
+    candidates.sort(key=lambda x: x["score"], reverse=True)
+
+    # Return top_k results
+    return candidates[:top_k]
 
 
 # ── Step 5: Test Retrieval ─────────────────────────────────────────────────────
@@ -290,3 +328,4 @@ if __name__ == "__main__":
         step5_test(args.query)
     else:
         print("Invalid step. Choose from 1–5.")
+"""
