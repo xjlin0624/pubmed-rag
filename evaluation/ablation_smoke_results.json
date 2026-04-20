@@ -1,0 +1,29 @@
+{
+  "query": "What is the effect of metformin on blood sugar?",
+  "runs": [
+    {
+      "branch": "bm25_only",
+      "fallback": true,
+      "faithfulness_rate": 0.0,
+      "answer_preview": "Generation error: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connect"
+    },
+    {
+      "branch": "dense_only",
+      "fallback": true,
+      "faithfulness_rate": 0.0,
+      "answer_preview": "Generation error: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connect"
+    },
+    {
+      "branch": "hybrid_default",
+      "fallback": true,
+      "faithfulness_rate": 0.0,
+      "answer_preview": "Generation error: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connect"
+    },
+    {
+      "branch": "hybrid_strict_nli",
+      "fallback": true,
+      "faithfulness_rate": 0.0,
+      "answer_preview": "Generation error: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connect"
+    }
+  ]
+}

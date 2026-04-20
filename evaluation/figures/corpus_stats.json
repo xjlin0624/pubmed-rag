@@ -1,0 +1,40 @@
+{
+  "total_chunks": 89532,
+  "unique_pmids": 8652,
+  "char_length": {
+    "mean": 154.19076978063708,
+    "min": 20,
+    "max": 1156,
+    "median": 143
+  },
+  "token_length": {
+    "mean": 21.256053701469867,
+    "min": 1,
+    "max": 200,
+    "median": 20
+  },
+  "year_range": "2024\u20132026",
+  "unique_mesh_terms": 4365,
+  "top_5_mesh": [
+    [
+      "Humans",
+      29425
+    ],
+    [
+      "Male",
+      21145
+    ],
+    [
+      "Female",
+      20007
+    ],
+    [
+      "Middle Aged",
+      15526
+    ],
+    [
+      "Aged",
+      13476
+    ]
+  ]
+}

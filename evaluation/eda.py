@@ -247,9 +247,55 @@ def _generate_synthetic_chunks(n: int = 500) -> list[dict]:
 # CLI
 # ---------------------------------------------------------------------------
 
+def plot_question_type_distribution(gold_path: str, out_dir: Path):
+    """Bar chart of PubMedQA question types (yes / no / maybe)."""
+    plt = _ensure_matplotlib()
+
+    gold_file = Path(gold_path)
+    if not gold_file.exists():
+        logger.warning("Gold file not found at %s; skipping question type chart.", gold_path)
+        return None
+
+    data = json.loads(gold_file.read_text())
+    questions = data.get("questions", data) if isinstance(data, dict) else data
+
+    counter: Counter = Counter()
+    for q in questions:
+        decision = q.get("final_decision", "").strip().lower()
+        if decision:
+            counter[decision] += 1
+
+    if not counter:
+        logger.warning("No final_decision field found in gold data; skipping question type chart.")
+        return None
+
+    labels = sorted(counter.keys())
+    counts = [counter[l] for l in labels]
+    colors = {"yes": "#2e7d32", "no": "#c62828", "maybe": "#f57f17"}
+    bar_colors = [colors.get(l, "#1565c0") for l in labels]
+
+    fig, ax = plt.subplots(figsize=(6, 4))
+    bars = ax.bar(labels, counts, color=bar_colors, edgecolor="white", alpha=0.85)
+    ax.set_title("PubMedQA question type distribution", fontsize=12, fontweight="bold")
+    ax.set_xlabel("Final decision")
+    ax.set_ylabel("Count")
+
+    for bar, cnt in zip(bars, counts):
+        ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + max(counts) * 0.02,
+                str(cnt), ha="center", fontsize=10, fontweight="bold")
+
+    fig.tight_layout()
+    path = out_dir / "question_type_distribution.png"
+    fig.savefig(path, dpi=150, bbox_inches="tight")
+    plt.close(fig)
+    logger.info("Saved %s", path)
+    return path
+
+
 def main():
     parser = argparse.ArgumentParser(description="EDA charts for PubMed RAG corpus")
     parser.add_argument("--chunks", type=str, default="chunks.json", help="Path to chunks.json")
+    parser.add_argument("--gold", type=str, default="data/pubmedqa_gold.json", help="Path to PubMedQA gold JSON")
     parser.add_argument("--out", type=str, default="evaluation/figures", help="Output directory for charts")
     parser.add_argument("--top-mesh", type=int, default=25, help="Number of top MeSH terms to show")
     parser.add_argument("--smoke", action="store_true", help="Use synthetic data for testing")
@@ -301,6 +347,7 @@ def main():
     plot_length_distribution(chunks, out_dir)
     plot_year_distribution(chunks, out_dir)
     plot_mesh_distribution(chunks, out_dir, top_n=args.top_mesh)
+    plot_question_type_distribution(args.gold, out_dir)
 
     print(f"All charts saved to {out_dir}/")
 

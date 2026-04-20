@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 TOP_K = int(os.getenv("TOP_K", "5"))
 MAX_ITER = int(os.getenv("MAX_ITER", "2"))
 MAX_CONTEXT = int(os.getenv("MAX_CONTEXT", "15"))
-FAITHFULNESS_THRESHOLD = float(os.getenv("FAITHFULNESS_THRESHOLD", "0.5"))
+FAITHFULNESS_THRESHOLD = float(os.getenv("FAITHFULNESS_THRESHOLD", "0.3"))
 
 # ---------------------------------------------------------------------------
 # Retriever: Part B `retrieve()` when indexes exist; lazy-import to avoid

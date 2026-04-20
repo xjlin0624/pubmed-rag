@@ -18,7 +18,7 @@ until curl -sf "http://127.0.0.1:11434/api/tags" >/dev/null 2>&1; do
 done
 echo "[entrypoint] Ollama is ready."
 
-MODEL="${OLLAMA_MODEL:-qwen3:4b}"
+MODEL="${OLLAMA_MODEL:-qwen2.5:7b}"
 echo "[entrypoint] Ensuring model is pulled: ${MODEL}"
 ollama pull "${MODEL}"
 
