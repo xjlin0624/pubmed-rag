@@ -153,7 +153,7 @@ def run(query: str) -> dict:
 
         result = generate(query, context)
 
-    return {"query": query, **result}
+    return {"query": query, "retrieved_pmids": [c["pmid"] for c in context], **result}
 
 
 if __name__ == "__main__":
