@@ -1,0 +1,256 @@
+{
+  "questions": [
+    {
+      "id": "15703931",
+      "body": "Does diabetes mellitus influence the efficacy of FDG-PET in the diagnosis of cervical cancer?",
+      "ideal_answer": "In comparison with its accuracy in non-DM patients, the accuracy of PET in cervical cancer patients with mild to moderate DM was not significantly reduced.",
+      "final_decision": "no",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/15703931"
+      ]
+    },
+    {
+      "id": "15800018",
+      "body": "Are even impaired fasting blood glucose levels preoperatively associated with increased mortality after CABG surgery?",
+      "ideal_answer": "The elevated risk of death after CABG surgery known previously to be associated with CDM seems also to be shared by a group of similar size that includes patients with IFG and undiagnosed DM.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/15800018"
+      ]
+    },
+    {
+      "id": "27456836",
+      "body": "Do Electrochemiluminescence Assays Improve Prediction of Time to Type 1 Diabetes in Autoantibody-Positive TrialNet Subjects?",
+      "ideal_answer": "ECL assays improved the ability to predict time to diabetes in these autoantibody-positive relatives at risk for developing diabetes. These findings might be helpful in the design and eligibility criteria for prevention trials in the future.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/27456836"
+      ]
+    },
+    {
+      "id": "22720085",
+      "body": "Does insulin resistance drive the association between hyperglycemia and cardiovascular risk?",
+      "ideal_answer": "The association between plasma glucose levels and CVD risk is mainly explained by insulin resistance, which raises the question of whether glucose lowering per se without changes in the processes that underlie hyperglycemia should be the sole clinical paradigm in the treatment of type 2 diabetes or its prevention.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/22720085"
+      ]
+    },
+    {
+      "id": "26556589",
+      "body": "Does type 1 diabetes mellitus affect Achilles tendon response to a 10\u00a0km run?",
+      "ideal_answer": "Active individuals with T1DM do not have a heightened Achilles tendon response to load, which suggests no increased risk of tendon injury. We cannot extrapolate these findings to sedentary individuals with T1DM.",
+      "final_decision": "no",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/26556589"
+      ]
+    },
+    {
+      "id": "21801416",
+      "body": "The effect of an intracerebroventricular injection of metformin or AICAR on the plasma concentrations of melatonin in the ewe: potential involvement of AMPK?",
+      "ideal_answer": "Taken together, these results suggest a potential role for AMPK on the secretion of melatonin probably acting trough the paraventricular nucleus and/or directly in the pineal gland. We conclude that AMPK may act as a metabolic cue to modulate the rhythm of melatonin secretion.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/21801416"
+      ]
+    },
+    {
+      "id": "24139705",
+      "body": "Telemedicine and type 1 diabetes: is technology per se sufficient to improve glycaemic control?",
+      "ideal_answer": "The Diabeo system improved glycaemic control in both high and low users who avidly used the IDA function, while the greatest improvement was seen in the low users who had the motivational support of teleconsultations.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/24139705"
+      ]
+    },
+    {
+      "id": "15939071",
+      "body": "High cumulative insulin exposure: a risk factor of atherosclerosis in type 1 diabetes?",
+      "ideal_answer": "These findings provide evidence that a high cumulative dose of regular insulin is a risk factor for atherosclerosis.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/15939071"
+      ]
+    },
+    {
+      "id": "24901580",
+      "body": "Is scintigraphy a guideline method in determining amputation levels in diabetic foot?",
+      "ideal_answer": "We conclude that 3-phase bone scintigraphy prior to surgery could be a useful method to determine the amputation level in a diabetic foot. We conclude that further, comparative, more comprehensive, long-term, and controlled studies are required.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/24901580"
+      ]
+    },
+    {
+      "id": "18948835",
+      "body": "Does somatostatin confer insulinostatic effects of neuromedin u in the rat pancreas?",
+      "ideal_answer": "Neuromedin U reduces insulin and increases somatostatin secretion. Blockade of somatostatin action abolishes the inhibition of insulin secretion by NmU. The results of the study suggest that somatostatin mediates the inhibitory action of NmU on insulin secretion.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/18948835"
+      ]
+    },
+    {
+      "id": "15125825",
+      "body": "Starting insulin in type 2 diabetes: continue oral hypoglycemic agents?",
+      "ideal_answer": "Bedtime NPH insulin added to maximal therapy with sulfonylurea and metformin is an effective, simple, well-tolerated approach for patients with uncontrolled type 2 diabetes.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/15125825"
+      ]
+    },
+    {
+      "id": "12006913",
+      "body": "Do lipids, blood pressure, diabetes, and smoking confer equal risk of myocardial infarction in women as in men?",
+      "ideal_answer": "This large study of the major risk factors compared between the sexes demonstrates similar relative risk of myocardial infarction associated with cholesterol for both sexes, however, the relative risk is higher in women for many other risk factors such as smoking, diabetes, elevated triglycerides and left ventricular hypertrophy.",
+      "final_decision": "no",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/12006913"
+      ]
+    },
+    {
+      "id": "23224030",
+      "body": "Do European people with type 1 diabetes consume a high atherogenic diet?",
+      "ideal_answer": "European individuals with type 1 diabetes consume a high atherogenic diet as few patients met recommendations for dietary fibre and saturated fat. This study showed minor changes in dietary nutrients and energy intakes over a period of 7 years. Nutrition education needs particular focus on strategies to increase dietary fibre and reduce saturated fat to exploit their potential benefit.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/23224030"
+      ]
+    },
+    {
+      "id": "22266735",
+      "body": "Screening for gestational diabetes mellitus: are the criteria proposed by the international association of the Diabetes and Pregnancy Study Groups cost-effective?",
+      "ideal_answer": "The IADPSG recommendation for glucose screening in pregnancy is cost-effective. The model is most sensitive to the likelihood of preventing future diabetes in patients identified with GDM using postdelivery counseling and intervention.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/22266735"
+      ]
+    },
+    {
+      "id": "17894828",
+      "body": "Serum angiotensin-converting enzyme and frequency of severe hypoglycaemia in Type 1 diabetes: does a relationship exist?",
+      "ideal_answer": "The present survey showed a weak relationship between serum ACE and the frequency of SH, the clinical relevance of which is unclear. This limits the proposed role for serum ACE as an index of risk for SH.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/17894828"
+      ]
+    },
+    {
+      "id": "12145243",
+      "body": "Are lower fasting plasma glucose levels at diagnosis of type 2 diabetes associated with improved outcomes?",
+      "ideal_answer": "People presenting with type 2 diabetes with lower initial glycemia who may be earlier in the course of their disease had fewer adverse clinical outcomes despite similar glycemic progression. Since most such people are asymptomatic at diagnosis, active case detection programs would be required to identify them.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/12145243"
+      ]
+    },
+    {
+      "id": "16971978",
+      "body": "Are complex coronary lesions more frequent in patients with diabetes mellitus?",
+      "ideal_answer": "Complex coronary lesions such as bifurcation and ostial lesions were significantly more common in diabetic patients than in nondiabetic patients. Greater age and the presence of DM were independent predictors for these complex lesions. These results may help to explain the poor prognosis of coronary artery disease among diabetic patients.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/16971978"
+      ]
+    },
+    {
+      "id": "23222920",
+      "body": "Pancreas retransplantation:  a second chance for diabetic patients?",
+      "ideal_answer": "Pancreas retransplantation is a safe procedure with acceptable graft survival that should be proposed to diabetic patients who have lost their primary graft.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/23222920"
+      ]
+    },
+    {
+      "id": "22522271",
+      "body": "Is late-night salivary cortisol a better screening test for possible cortisol excess than standard screening tests in obese patients with Type 2 diabetes?",
+      "ideal_answer": "Late-night salivary cortisol has a poor specificity for cortisol excess in obese patients with T2DM with 24 hr UFC showing significantly better specificity in our population.",
+      "final_decision": "no",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/22522271"
+      ]
+    },
+    {
+      "id": "15095519",
+      "body": "Are patients with diabetes receiving the same message from dietitians and nurses?",
+      "ideal_answer": "Although some differences existed, RD and RN CDEs are making similar overall recommendations in the treatment of individuals with diabetes.",
+      "final_decision": "no",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/15095519"
+      ]
+    },
+    {
+      "id": "16241924",
+      "body": "Does parity increase insulin resistance during pregnancy?",
+      "ideal_answer": "Parity is not directly linked to insulin sensitivity deterioration, to CP/FPG increase during pregnancy, or to GDM appearance, although it is linked through the mediation of progressive ageing and weight gain either before or during pregnancy, when there is a sufficiently long time interval between pregnancies.",
+      "final_decision": "no",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/16241924"
+      ]
+    },
+    {
+      "id": "15787677",
+      "body": "Does aerobic fitness influence microvascular function in healthy adults at risk of developing Type 2 diabetes?",
+      "ideal_answer": "In this 'at-risk' group with skin microvascular dysfunction maximal oxygen uptake was not reduced compared with healthy controls. However, in the 'at-risk' group alone, individuals with higher levels of aerobic fitness also had better microvascular and endothelial responsiveness.",
+      "final_decision": "maybe",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/15787677"
+      ]
+    },
+    {
+      "id": "19406119",
+      "body": "Does telmisartan prevent hepatic fibrosis in rats with alloxan-induced diabetes?",
+      "ideal_answer": "Results suggest that telmisartan may reduce type-I diabetes mellitus-induced hepatic injury by suppressing activated hepatic stellate cells through concomitant TGF-beta1 down-regulation.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/19406119"
+      ]
+    },
+    {
+      "id": "8521557",
+      "body": "The insertion allele of the ACE gene I/D polymorphism. A candidate gene for insulin resistance?",
+      "ideal_answer": "We conclude that increased cardiovascular risk of the DD genotype is not mediated through insulin resistance or abnormalities in fibrinolysis. Conversely, we report an increased sensitivity in NIDDM subjects with the ACE DD genotype.",
+      "final_decision": "no",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/8521557"
+      ]
+    },
+    {
+      "id": "8738894",
+      "body": "Diabetes mellitus among Swedish art glass workers--an effect of arsenic exposure?",
+      "ideal_answer": "The observations from this study provide limited support for the possibility that occupational arsenic exposure could play a role in the development of diabetes mellitus. Many other metallic compounds are also used in art glass production, however, and there is a possibility of confounding.",
+      "final_decision": "no",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/8738894"
+      ]
+    },
+    {
+      "id": "25675614",
+      "body": "Can gingival crevicular blood be relied upon for assessment of blood glucose level?",
+      "ideal_answer": "The data from this study has shown that GCB collected during diagnostic periodontal examination can be an excellent source of blood for glucometric analysis.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/25675614"
+      ]
+    },
+    {
+      "id": "20011163",
+      "body": "Can Roux-en-Y gastric bypass provide a lifelong solution for diabetes mellitus?",
+      "ideal_answer": "Roux-en-Y gastric bypass is a promising option for lifelong treatment of type 2 diabetes. It has the potential to improve or cure a selected spectrum of type 1 diabetes when performed early in the disease. Further animal model studies or randomized controlled trials are needed to support our conclusion.",
+      "final_decision": "yes",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/20011163"
+      ]
+    },
+    {
+      "id": "21593045",
+      "body": "Do women with ovaries of polycystic morphology without any other features of PCOS benefit from short-term metformin co-treatment during IVF?",
+      "ideal_answer": "There appears to be no benefit in metformin co-treatment before and during IVF in women with PCO without any other features of PCOS. Clinical Trials.gov: NCT01046032.",
+      "final_decision": "no",
+      "documents": [
+        "http://www.ncbi.nlm.nih.gov/pubmed/21593045"
+      ]
+    }
+  ]
+}
