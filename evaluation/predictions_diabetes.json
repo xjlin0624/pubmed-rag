@@ -1,0 +1,885 @@
+[
+  {
+    "id": "15703931",
+    "answer": "The passage does not provide information on the relationship between diabetes mellitus and FDG-PET efficacy for diagnosing cervical cancer [1].",
+    "citations": [
+      "41812827",
+      "41949139",
+      "41949139",
+      "41806265",
+      "41757379",
+      "41884312",
+      "41767392"
+    ],
+    "retrieved_pmids": [
+      "41812827",
+      "41949139",
+      "41949139",
+      "41806265",
+      "41757379",
+      "41884312",
+      "41767392"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The passage does not provide information on the relationship between diabetes mellitus and FDG-PET efficacy for diagnosing cervical cancer [1].",
+          "supported": false,
+          "max_score": 0.004
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 19.88
+  },
+  {
+    "id": "15800018",
+    "answer": "Yes, prediabetes, which includes impaired fasting glucose (IFG), is associated with a significantly higher CV risk than normoglycemia [4]. Additionally, preoperative TGI is an independent predictor of 1-year mortality after CABG [3], suggesting that even preoperatively uncontrolled glycemic levels can impact outcomes.",
+    "citations": [
+      "41938286",
+      "41815566",
+      "41850915",
+      "41789328",
+      "41833353"
+    ],
+    "retrieved_pmids": [
+      "41938286",
+      "41815566",
+      "41850915",
+      "41789328",
+      "41833353"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Yes, prediabetes, which includes impaired fasting glucose (IFG), is associated with a significantly higher CV risk than normoglycemia [4].",
+          "supported": true,
+          "max_score": 0.988
+        },
+        {
+          "text": "Additionally, preoperative TGI is an independent predictor of 1-year mortality after CABG [3], suggesting that even preoperatively uncontrolled glycemic levels can impact outcomes.",
+          "supported": false,
+          "max_score": 0.002
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 3.94
+  },
+  {
+    "id": "27456836",
+    "answer": "[4] A support vector machine trained on TrialNet Pathway to Prevention and tested on Diabetes Prevention Trial-Type 1 achieved an area under the curve of 0.77 at 1.4 years prior to diagnosis, with strong calibration and interpretability. [5] Recent data shows that these technologies improve outcomes early in the course of type 1 diabetes.",
+    "citations": [
+      "41860454",
+      "41925716",
+      "41757176",
+      "41860454",
+      "41973910"
+    ],
+    "retrieved_pmids": [
+      "41860454",
+      "41925716",
+      "41757176",
+      "41860454",
+      "41973910"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[4] A support vector machine trained on TrialNet Pathway to Prevention and tested on Diabetes Prevention Trial-Type 1 achieved an area under the curve of 0.77 at 1.4 years prior to diagnosis, with strong calibration and interpretability.",
+          "supported": true,
+          "max_score": 0.953
+        },
+        {
+          "text": "[5] Recent data shows that these technologies improve outcomes early in the course of type 1 diabetes.",
+          "supported": true,
+          "max_score": 0.988
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 4.04
+  },
+  {
+    "id": "22720085",
+    "answer": "Insulin resistance (IR) drives early cardiometabolic risk in populations with high adiposity [2] and is associated with cardiovascular disease in type 2 diabetes [3], suggesting it may play a role in linking hyperglycemia to cardiovascular risk. However, the causative role of IR and hyperglycemia in poor stroke outcomes is unclear [4].",
+    "citations": [
+      "41836049",
+      "41878051",
+      "41828377",
+      "41805868",
+      "41771587"
+    ],
+    "retrieved_pmids": [
+      "41836049",
+      "41878051",
+      "41828377",
+      "41805868",
+      "41771587"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Insulin resistance (IR) drives early cardiometabolic risk in populations with high adiposity [2] and is associated with cardiovascular disease in type 2 diabetes [3], suggesting it may play a role in linking hyperglycemia to cardiovascular risk.",
+          "supported": false,
+          "max_score": 0.03
+        },
+        {
+          "text": "However, the causative role of IR and hyperglycemia in poor stroke outcomes is unclear [4].",
+          "supported": true,
+          "max_score": 0.966
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 3.91
+  },
+  {
+    "id": "26556589",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41870579",
+      "41990899",
+      "41927192",
+      "41769158",
+      "41968580"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.38
+  },
+  {
+    "id": "21801416",
+    "answer": "[1] Activation of AMPK by AICAR reversed adverse effects, restoring Nrf2 and HO-1 expression, improving cell viability, and protecting the blood-retinal barrier. [5] Low concentrations of metformin can activate AMPK by a lysosomal pathway without interrupting oxidative metabolism.",
+    "citations": [
+      "41839915",
+      "41942023",
+      "41819225",
+      "41752491",
+      "41819225"
+    ],
+    "retrieved_pmids": [
+      "41839915",
+      "41942023",
+      "41819225",
+      "41752491",
+      "41819225"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[1] Activation of AMPK by AICAR reversed adverse effects, restoring Nrf2 and HO-1 expression, improving cell viability, and protecting the blood-retinal barrier.",
+          "supported": true,
+          "max_score": 0.982
+        },
+        {
+          "text": "[5] Low concentrations of metformin can activate AMPK by a lysosomal pathway without interrupting oxidative metabolism.",
+          "supported": true,
+          "max_score": 0.987
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 4.06
+  },
+  {
+    "id": "24139705",
+    "answer": "The use of technologies such as continuous glucose monitoring (CGM) and automated insulin delivery systems has been shown to significantly improve glycaemic control in people with both type 1 and type 2 diabetes [6]. However, the question of whether technology alone is sufficient for effective self-management remains, especially considering the challenges faced by adolescents and children with type 1 diabetes [5].",
+    "citations": [
+      "41747751",
+      "41952364",
+      "41761141",
+      "41970147",
+      "41773664",
+      "41973910"
+    ],
+    "retrieved_pmids": [
+      "41747751",
+      "41952364",
+      "41761141",
+      "41970147",
+      "41773664",
+      "41973910"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The use of technologies such as continuous glucose monitoring (CGM) and automated insulin delivery systems has been shown to significantly improve glycaemic control in people with both type 1 and type 2 diabetes [6].",
+          "supported": true,
+          "max_score": 0.984
+        },
+        {
+          "text": "However, the question of whether technology alone is sufficient for effective self-management remains, especially considering the challenges faced by adolescents and children with type 1 diabetes [5].",
+          "supported": true,
+          "max_score": 0.335
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 7.3
+  },
+  {
+    "id": "15939071",
+    "answer": "[1] Adults with type 1 diabetes (T1D) are at markedly elevated risk of atherosclerotic cardiovascular disease (ASCVD). However, the specific role of high cumulative insulin exposure as a risk factor for atherosclerosis in T1D is not directly addressed in the provided passages.",
+    "citations": [
+      "41857831",
+      "41948587",
+      "41879791",
+      "41782046",
+      "41867465"
+    ],
+    "retrieved_pmids": [
+      "41857831",
+      "41948587",
+      "41879791",
+      "41782046",
+      "41867465"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[1] Adults with type 1 diabetes (T1D) are at markedly elevated risk of atherosclerotic cardiovascular disease (ASCVD).",
+          "supported": true,
+          "max_score": 0.977
+        },
+        {
+          "text": "However, the specific role of high cumulative insulin exposure as a risk factor for atherosclerosis in T1D is not directly addressed in the provided passages.",
+          "supported": false,
+          "max_score": 0.003
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 3.64
+  },
+  {
+    "id": "24901580",
+    "answer": "[2] Additionally, it is important to utilize any available vascular imaging or non-invasive vascular studies as well as wound stratification systems when planning amputation levels. However, there is no specific mention of scintigraphy being used as a guideline method in these passages.",
+    "citations": [
+      "41995011",
+      "41826018",
+      "41990947",
+      "41952430",
+      "41767398"
+    ],
+    "retrieved_pmids": [
+      "41995011",
+      "41826018",
+      "41990947",
+      "41952430",
+      "41767398"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[2] Additionally, it is important to utilize any available vascular imaging or non-invasive vascular studies as well as wound stratification systems when planning amputation levels.",
+          "supported": true,
+          "max_score": 0.987
+        },
+        {
+          "text": "However, there is no specific mention of scintigraphy being used as a guideline method in these passages.",
+          "supported": false,
+          "max_score": 0.002
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 3.35
+  },
+  {
+    "id": "18948835",
+    "answer": "[1] Hormone secretion in the pancreatic islet has long been explained by inhibitory feedback loops, with somatostatin viewed as a static suppressor of insulin and glucagon release. [4] These findings support a model in which somatostatin signaling encodes hormone output through temporal dynamics rather than tonic inhibition.",
+    "citations": [
+      "41993489",
+      "41912300",
+      "41993489",
+      "41993489",
+      "41788781"
+    ],
+    "retrieved_pmids": [
+      "41993489",
+      "41912300",
+      "41993489",
+      "41993489",
+      "41788781"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[1] Hormone secretion in the pancreatic islet has long been explained by inhibitory feedback loops, with somatostatin viewed as a static suppressor of insulin and glucagon release.",
+          "supported": true,
+          "max_score": 0.985
+        },
+        {
+          "text": "[4] These findings support a model in which somatostatin signaling encodes hormone output through temporal dynamics rather than tonic inhibition.",
+          "supported": true,
+          "max_score": 0.986
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 3.97
+  },
+  {
+    "id": "15125825",
+    "answer": "This cross-sectional study included patients with uncontrolled type 2 DM despite at least one year of insulin treatment, indicating that starting insulin does not necessarily preclude the use of oral hypoglycemic agents [1]. However, adherence to oral hypoglycemic agents was higher than in those receiving combined therapy or insulin alone, suggesting potential benefits to continuing these agents alongside insulin [3].",
+    "citations": [
+      "41878803",
+      "41837405",
+      "41994515",
+      "41925713",
+      "41788003"
+    ],
+    "retrieved_pmids": [
+      "41878803",
+      "41837405",
+      "41994515",
+      "41925713",
+      "41788003"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "This cross-sectional study included patients with uncontrolled type 2 DM despite at least one year of insulin treatment, indicating that starting insulin does not necessarily preclude the use of oral hypoglycemic agents [1].",
+          "supported": true,
+          "max_score": 0.424
+        },
+        {
+          "text": "However, adherence to oral hypoglycemic agents was higher than in those receiving combined therapy or insulin alone, suggesting potential benefits to continuing these agents alongside insulin [3].",
+          "supported": false,
+          "max_score": 0.004
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 4.47
+  },
+  {
+    "id": "12006913",
+    "answer": "Based on the provided passages, there is evidence suggesting that women may exhibit different presentations and thresholds for cardiovascular risks such as blood pressure, diabetes, adiposity, and lipid-related factors compared to men [2]. However, specific equivalency or differences in risk conferred by lipids, blood pressure, diabetes, and smoking between women and men are not directly addressed in the given references.",
+    "citations": [
+      "41867906",
+      "41999366",
+      "41760346",
+      "41848053",
+      "41829173"
+    ],
+    "retrieved_pmids": [
+      "41867906",
+      "41999366",
+      "41760346",
+      "41848053",
+      "41829173"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Based on the provided passages, there is evidence suggesting that women may exhibit different presentations and thresholds for cardiovascular risks such as blood pressure, diabetes, adiposity, and lipid-related factors compared to men [2].",
+          "supported": true,
+          "max_score": 0.884
+        },
+        {
+          "text": "However, specific equivalency or differences in risk conferred by lipids, blood pressure, diabetes, and smoking between women and men are not directly addressed in the given references.",
+          "supported": false,
+          "max_score": 0.063
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 4.51
+  },
+  {
+    "id": "23224030",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41795035",
+      "41802798",
+      "41857831",
+      "41841472",
+      "41911084"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.35
+  },
+  {
+    "id": "22266735",
+    "answer": "The screening for gestational diabetes mellitus (GDM) was based on the International Association of the Diabetes and Pregnancy Study Groups (IADPSG) criteria using a 75-g oral glucose tolerance test at 24-28 weeks of gestation [1, 2, 3, 5].",
+    "citations": [
+      "41779244",
+      "41822965",
+      "41883297",
+      "41793699",
+      "41915666"
+    ],
+    "retrieved_pmids": [
+      "41779244",
+      "41822965",
+      "41883297",
+      "41793699",
+      "41915666"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The screening for gestational diabetes mellitus (GDM) was based on the International Association of the Diabetes and Pregnancy Study Groups (IADPSG) criteria using a 75-g oral glucose tolerance test at 24-28 weeks of gestation [1, 2, 3, 5].",
+          "supported": true,
+          "max_score": 0.478
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 3.78
+  },
+  {
+    "id": "17894828",
+    "answer": "[3] Angiotensin-converting enzyme level was 124. [5] Rates of severe hypoglycaemia were low at 1.08/100 person-years in individuals with type 1 diabetes.",
+    "citations": [
+      "41791767",
+      "41925716",
+      "41938302",
+      "41896315",
+      "41841791"
+    ],
+    "retrieved_pmids": [
+      "41791767",
+      "41925716",
+      "41938302",
+      "41896315",
+      "41841791"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[3] Angiotensin-converting enzyme level was 124.",
+          "supported": true,
+          "max_score": 0.993
+        },
+        {
+          "text": "[5] Rates of severe hypoglycaemia were low at 1.08/100 person-years in individuals with type 1 diabetes.",
+          "supported": false,
+          "max_score": 0.013
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 3.2
+  },
+  {
+    "id": "12145243",
+    "answer": "[3] Primary outcomes included complete diabetes remission according to American Diabetes Association (ADA) 2021 criteria (HbA1c <6.5%, fasting plasma glucose <100 mg/dL, no antidiabetic medications for \u226512 months). [4] Diabetes status was defined by fasting plasma glucose concentration \u22657.0 mmol/L or a self-reported physician diagnosis.",
+    "citations": [
+      "41986816",
+      "41933349",
+      "41941044",
+      "41821604",
+      "41759934",
+      "41787868",
+      "41938290",
+      "42000296",
+      "41759428",
+      "41951707"
+    ],
+    "retrieved_pmids": [
+      "41986816",
+      "41933349",
+      "41941044",
+      "41821604",
+      "41759934",
+      "41787868",
+      "41938290",
+      "42000296",
+      "41759428",
+      "41951707"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[3] Primary outcomes included complete diabetes remission according to American Diabetes Association (ADA) 2021 criteria (HbA1c <6.5%, fasting plasma glucose <100 mg/dL, no antidiabetic medications for \u226512 months).",
+          "supported": true,
+          "max_score": 0.989
+        },
+        {
+          "text": "[4] Diabetes status was defined by fasting plasma glucose concentration \u22657.0 mmol/L or a self-reported physician diagnosis.",
+          "supported": true,
+          "max_score": 0.865
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 11.1
+  },
+  {
+    "id": "16971978",
+    "answer": "Yes, ischemic lesions were significantly associated with diabetes mellitus [4], and diabetic patients undergoing percutaneous coronary intervention (PCI) frequently have complex coronary artery disease (CAD) [2].",
+    "citations": [
+      "41994692",
+      "41776495",
+      "41757672",
+      "41765362",
+      "41860283"
+    ],
+    "retrieved_pmids": [
+      "41994692",
+      "41776495",
+      "41757672",
+      "41765362",
+      "41860283"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Yes, ischemic lesions were significantly associated with diabetes mellitus [4], and diabetic patients undergoing percutaneous coronary intervention (PCI) frequently have complex coronary artery disease (CAD) [2].",
+          "supported": true,
+          "max_score": 0.467
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 2.5
+  },
+  {
+    "id": "23222920",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41795015",
+      "41795015",
+      "41969633",
+      "42000457",
+      "41947410"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.27
+  },
+  {
+    "id": "22522271",
+    "answer": "[1] indicates that late-night salivary cortisol is one of the diagnostic tests used, though not as frequently as 24-h urinary free cortisol or the 1-mg overnight dexamethasone suppression test. [2] confirms elevated late-night salivary cortisol in ACTH-dependent hypercortisolism, suggesting its utility in biochemical evaluation.",
+    "citations": [
+      "41919182",
+      "41946536",
+      "41935676",
+      "41935676",
+      "41935676"
+    ],
+    "retrieved_pmids": [
+      "41919182",
+      "41946536",
+      "41935676",
+      "41935676",
+      "41935676"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[1] indicates that late-night salivary cortisol is one of the diagnostic tests used, though not as frequently as 24-h urinary free cortisol or the 1-mg overnight dexamethasone suppression test.",
+          "supported": true,
+          "max_score": 0.984
+        },
+        {
+          "text": "[2] confirms elevated late-night salivary cortisol in ACTH-dependent hypercortisolism, suggesting its utility in biochemical evaluation.",
+          "supported": true,
+          "max_score": 0.423
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 4.29
+  },
+  {
+    "id": "15095519",
+    "answer": "Yes, dietitian/nurse teams provided dietary and lifestyle recommendations to patients/families [1].",
+    "citations": [
+      "41752319",
+      "41767512",
+      "41838287",
+      "41767512",
+      "41840356"
+    ],
+    "retrieved_pmids": [
+      "41752319",
+      "41767512",
+      "41838287",
+      "41767512",
+      "41840356"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Yes, dietitian/nurse teams provided dietary and lifestyle recommendations to patients/families [1].",
+          "supported": true,
+          "max_score": 0.461
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 1.68
+  },
+  {
+    "id": "16241924",
+    "answer": "The provided passages do not address whether parity increases insulin resistance during pregnancy.",
+    "citations": [
+      "41746698",
+      "41989028",
+      "41837467",
+      "41771588",
+      "41849586",
+      "41871597",
+      "41834931",
+      "41858302"
+    ],
+    "retrieved_pmids": [
+      "41746698",
+      "41989028",
+      "41837467",
+      "41771588",
+      "41849586",
+      "41871597",
+      "41834931",
+      "41858302"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The provided passages do not address whether parity increases insulin resistance during pregnancy.",
+          "supported": false,
+          "max_score": 0.048
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 7.41
+  },
+  {
+    "id": "15787677",
+    "answer": "[1] In individuals with Type 2 diabetes (T2D), aerobic exercise training improves cardiorespiratory fitness (VO2peak), which may influence microvascular function, although the specific effects on healthy adults at risk were not directly addressed in the provided passages. [7] and [8] suggest that microvascular abnormalities can occur across a continuum of metabolic dysfunction but do not specifically address aerobic fitness in healthy adults at risk of T2D.",
+    "citations": [
+      "41906954",
+      "41906954",
+      "41948552",
+      "41886945",
+      "41862320",
+      "41795037",
+      "41819451",
+      "41978795",
+      "41835740"
+    ],
+    "retrieved_pmids": [
+      "41906954",
+      "41906954",
+      "41948552",
+      "41886945",
+      "41862320",
+      "41795037",
+      "41819451",
+      "41978795",
+      "41835740"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[1] In individuals with Type 2 diabetes (T2D), aerobic exercise training improves cardiorespiratory fitness (VO2peak), which may influence microvascular function, although the specific effects on healthy adults at risk were not directly addressed in the provided passages.",
+          "supported": true,
+          "max_score": 0.324
+        },
+        {
+          "text": "[7] and [8] suggest that microvascular abnormalities can occur across a continuum of metabolic dysfunction but do not specifically address aerobic fitness in healthy adults at risk of T2D.",
+          "supported": false,
+          "max_score": 0.088
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 13.98
+  },
+  {
+    "id": "19406119",
+    "answer": "No evidence is provided to directly address whether telmisartan prevents hepatic fibrosis in rats with alloxan-induced diabetes [1, 8].",
+    "citations": [
+      "41934432",
+      "41972925",
+      "41990533",
+      "41769284",
+      "41830569",
+      "41831086",
+      "41907527",
+      "41752891",
+      "41925328"
+    ],
+    "retrieved_pmids": [
+      "41934432",
+      "41972925",
+      "41990533",
+      "41769284",
+      "41830569",
+      "41831086",
+      "41907527",
+      "41752891",
+      "41925328"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "No evidence is provided to directly address whether telmisartan prevents hepatic fibrosis in rats with alloxan-induced diabetes [1, 8].",
+          "supported": false,
+          "max_score": 0.013
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 8.87
+  },
+  {
+    "id": "8521557",
+    "answer": "The insertion (I) allele of the ACE gene I/D polymorphism has been explored as a potential marker for insulin resistance [2], though results across different studies have been conflicting [1, 3].",
+    "citations": [
+      "41914989",
+      "41859967",
+      "41914989",
+      "41884097",
+      "41914989"
+    ],
+    "retrieved_pmids": [
+      "41914989",
+      "41859967",
+      "41914989",
+      "41884097",
+      "41914989"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The insertion (I) allele of the ACE gene I/D polymorphism has been explored as a potential marker for insulin resistance [2], though results across different studies have been conflicting [1, 3].",
+          "supported": false,
+          "max_score": 0.202
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 8.11
+  },
+  {
+    "id": "8738894",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41916475",
+      "41771815",
+      "41949139",
+      "41949139",
+      "41886696"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.32
+  },
+  {
+    "id": "25675614",
+    "answer": "Yes, gingival crevicular blood can be reliably used for assessing blood glucose levels as the two glucometers showed almost perfect agreement with this method [1].",
+    "citations": [
+      "41918662",
+      "41918662",
+      "41918662",
+      "41918662",
+      "41928535"
+    ],
+    "retrieved_pmids": [
+      "41918662",
+      "41918662",
+      "41918662",
+      "41918662",
+      "41928535"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Yes, gingival crevicular blood can be reliably used for assessing blood glucose levels as the two glucometers showed almost perfect agreement with this method [1].",
+          "supported": true,
+          "max_score": 0.939
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 2.33
+  },
+  {
+    "id": "20011163",
+    "answer": "Studies suggest that Roux-en-Y gastric bypass can improve glucose homeostasis beyond weight loss, potentially offering a long-term resolution of type 2 diabetes mellitus [3], although the exact mechanisms and their applicability to individual patients are not fully understood [7].",
+    "citations": [
+      "41772539",
+      "41851489",
+      "41994483",
+      "41773651",
+      "41813264",
+      "41909003",
+      "41988260",
+      "41811498"
+    ],
+    "retrieved_pmids": [
+      "41772539",
+      "41851489",
+      "41994483",
+      "41773651",
+      "41813264",
+      "41909003",
+      "41988260",
+      "41811498"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Studies suggest that Roux-en-Y gastric bypass can improve glucose homeostasis beyond weight loss, potentially offering a long-term resolution of type 2 diabetes mellitus [3], although the exact mechanisms and their applicability to individual patients are not fully understood [7].",
+          "supported": false,
+          "max_score": 0.026
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 12.13
+  },
+  {
+    "id": "21593045",
+    "answer": "[1] This study aimed to explore the impact of metformin on gonadotropin levels in women with polycystic ovary syndrome (PCOS) based on a meta-analysis of randomised controlled trials (RCTs). [Note: The passage does not specifically address women without other PCOS features or short-term co-treatment during IVF.]",
+    "citations": [
+      "41891336",
+      "41952865",
+      "41756711",
+      "41950694",
+      "41950694"
+    ],
+    "retrieved_pmids": [
+      "41891336",
+      "41952865",
+      "41756711",
+      "41950694",
+      "41950694"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[1] This study aimed to explore the impact of metformin on gonadotropin levels in women with polycystic ovary syndrome (PCOS) based on a meta-analysis of randomised controlled trials (RCTs).",
+          "supported": true,
+          "max_score": 0.978
+        },
+        {
+          "text": "[Note: The passage does not specifically address women without other PCOS features or short-term co-treatment during IVF.]",
+          "supported": false,
+          "max_score": 0.023
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 4.22
+  }
+]

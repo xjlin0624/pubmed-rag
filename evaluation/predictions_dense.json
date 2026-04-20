@@ -1,0 +1,821 @@
+[
+  {
+    "id": "15703931",
+    "answer": "[1]",
+    "citations": [
+      "41812827",
+      "41949139",
+      "41949139",
+      "41938111",
+      "41806265",
+      "41752934",
+      "41953664",
+      "41748965",
+      "41897350",
+      "41767392",
+      "41872719"
+    ],
+    "retrieved_pmids": [
+      "41812827",
+      "41949139",
+      "41949139",
+      "41938111",
+      "41806265",
+      "41752934",
+      "41953664",
+      "41748965",
+      "41897350",
+      "41767392",
+      "41872719"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 21.96
+  },
+  {
+    "id": "15800018",
+    "answer": "No significant associations were found between LDL-C and mortality after adjustment [6]. However, suboptimal glycaemic control is associated with increased postoperative complications [3], suggesting that even impaired fasting blood glucose levels might be associated with increased mortality after CABG surgery.",
+    "citations": [
+      "41938286",
+      "41837123",
+      "41983575",
+      "41808790",
+      "41809302",
+      "41852008",
+      "41798193",
+      "41913845",
+      "41866334",
+      "41982276"
+    ],
+    "retrieved_pmids": [
+      "41938286",
+      "41837123",
+      "41983575",
+      "41808790",
+      "41809302",
+      "41852008",
+      "41798193",
+      "41913845",
+      "41866334",
+      "41982276"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "No significant associations were found between LDL-C and mortality after adjustment [6].",
+          "supported": false,
+          "max_score": 0.189
+        },
+        {
+          "text": "However, suboptimal glycaemic control is associated with increased postoperative complications [3], suggesting that even impaired fasting blood glucose levels might be associated with increased mortality after CABG surgery.",
+          "supported": false,
+          "max_score": 0.004
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 12.53
+  },
+  {
+    "id": "27456836",
+    "answer": "[2] Autoantibodies can predict clinical type 1 diabetes, impacting early diagnosis, prevention, and management. [3] Screening the autoantibody profile helps in predicting, evaluating, and prognosing of Type 1 diabetes.",
+    "citations": [
+      "41860454",
+      "41820768",
+      "41980426",
+      "41925716",
+      "41925716"
+    ],
+    "retrieved_pmids": [
+      "41860454",
+      "41820768",
+      "41980426",
+      "41925716",
+      "41925716"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[2] Autoantibodies can predict clinical type 1 diabetes, impacting early diagnosis, prevention, and management.",
+          "supported": true,
+          "max_score": 0.989
+        },
+        {
+          "text": "[3] Screening the autoantibody profile helps in predicting, evaluating, and prognosing of Type 1 diabetes.",
+          "supported": true,
+          "max_score": 0.987
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 3.24
+  },
+  {
+    "id": "22720085",
+    "answer": "Yes, insulin resistance drives the association between hyperglycemia and cardiovascular risk. This is supported by studies showing that insulin resistance is linked to elevated glucose levels and hyperinsulinemia [4], and chronic hyperglycemia contributes to endothelial dysfunction, which links diabetes with cardiovascular disease [5].",
+    "citations": [
+      "41878051",
+      "41828377",
+      "41912293",
+      "41987603",
+      "41898523",
+      "41836049",
+      "41853659"
+    ],
+    "retrieved_pmids": [
+      "41878051",
+      "41828377",
+      "41912293",
+      "41987603",
+      "41898523",
+      "41836049",
+      "41853659"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Yes, insulin resistance drives the association between hyperglycemia and cardiovascular risk.",
+          "supported": true,
+          "max_score": 0.57
+        },
+        {
+          "text": "This is supported by studies showing that insulin resistance is linked to elevated glucose levels and hyperinsulinemia [4], and chronic hyperglycemia contributes to endothelial dysfunction, which links diabetes with cardiovascular disease [5].",
+          "supported": false,
+          "max_score": 0.004
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 6.77
+  },
+  {
+    "id": "26556589",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41812487",
+      "41812487",
+      "41799035",
+      "41956551",
+      "41833833"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.37
+  },
+  {
+    "id": "21801416",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41839915",
+      "41819225",
+      "41943980",
+      "41752491",
+      "41819225"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.63
+  },
+  {
+    "id": "24139705",
+    "answer": "The passages do not specifically address telemedicine or whether technology alone is sufficient to improve glycaemic control for type 1 diabetes. They discuss the benefits of automated insulin delivery, continuous glucose monitoring, and diabetes technology use in managing type 1 diabetes [1, 3, 2, 5].",
+    "citations": [
+      "41747751",
+      "41952364",
+      "41761141",
+      "41970147",
+      "41773664"
+    ],
+    "retrieved_pmids": [
+      "41747751",
+      "41952364",
+      "41761141",
+      "41970147",
+      "41773664"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The passages do not specifically address telemedicine or whether technology alone is sufficient to improve glycaemic control for type 1 diabetes.",
+          "supported": false,
+          "max_score": 0.035
+        },
+        {
+          "text": "They discuss the benefits of automated insulin delivery, continuous glucose monitoring, and diabetes technology use in managing type 1 diabetes [1, 3, 2, 5].",
+          "supported": true,
+          "max_score": 0.372
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 3.67
+  },
+  {
+    "id": "15939071",
+    "answer": "Increasing evidence suggests that vascular injury in diabetes is driven more substantially by cumulative metabolic exposure and traditional cardiovascular risk factors, rather than by glycemic control or the diabetes subtype alone [4]. Diabetes significantly increases the risk for atherosclerotic complications, including coronary artery disease (CAD) [5].",
+    "citations": [
+      "41879791",
+      "41782046",
+      "41867465",
+      "41935855",
+      "41912451"
+    ],
+    "retrieved_pmids": [
+      "41879791",
+      "41782046",
+      "41867465",
+      "41935855",
+      "41912451"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Increasing evidence suggests that vascular injury in diabetes is driven more substantially by cumulative metabolic exposure and traditional cardiovascular risk factors, rather than by glycemic control or the diabetes subtype alone [4].",
+          "supported": true,
+          "max_score": 0.374
+        },
+        {
+          "text": "Diabetes significantly increases the risk for atherosclerotic complications, including coronary artery disease (CAD) [5].",
+          "supported": true,
+          "max_score": 0.888
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 3.57
+  },
+  {
+    "id": "24901580",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41826018",
+      "41763258",
+      "41826018",
+      "41956477",
+      "41872915"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.36
+  },
+  {
+    "id": "18948835",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41788781",
+      "41947975",
+      "41876542",
+      "41754081",
+      "41943672"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.35
+  },
+  {
+    "id": "15125825",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41788003",
+      "41798541",
+      "41987548",
+      "41938289",
+      "41884493"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.3
+  },
+  {
+    "id": "12006913",
+    "answer": "Women exhibited a greater prevalence of obesity, diabetes, dyslipidemia, and a personal history of myocardial infarction compared to men [1]. The effect estimate of hypertension and particularly diabetes was higher in women than in men [5].",
+    "citations": [
+      "41867906",
+      "41907654",
+      "41848053",
+      "41939565",
+      "41952031"
+    ],
+    "retrieved_pmids": [
+      "41867906",
+      "41907654",
+      "41848053",
+      "41939565",
+      "41952031"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Women exhibited a greater prevalence of obesity, diabetes, dyslipidemia, and a personal history of myocardial infarction compared to men [1].",
+          "supported": true,
+          "max_score": 0.977
+        },
+        {
+          "text": "The effect estimate of hypertension and particularly diabetes was higher in women than in men [5].",
+          "supported": true,
+          "max_score": 0.574
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 3.61
+  },
+  {
+    "id": "23224030",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41878043",
+      "41857831",
+      "41879791",
+      "41855766",
+      "41890176"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.34
+  },
+  {
+    "id": "22266735",
+    "answer": "The study provides compelling evidence for the utility of cost-effective biomarkers in large-scale health screening [9]. We now present an updated cost-effectiveness analysis, based on available 5-year data [10].",
+    "citations": [
+      "41822965",
+      "41883297",
+      "41858856",
+      "41915666",
+      "41838464",
+      "41779244",
+      "41747674",
+      "41770120",
+      "41770882",
+      "41904649"
+    ],
+    "retrieved_pmids": [
+      "41822965",
+      "41883297",
+      "41858856",
+      "41915666",
+      "41838464",
+      "41779244",
+      "41747674",
+      "41770120",
+      "41770882",
+      "41904649"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The study provides compelling evidence for the utility of cost-effective biomarkers in large-scale health screening [9].",
+          "supported": true,
+          "max_score": 0.524
+        },
+        {
+          "text": "We now present an updated cost-effectiveness analysis, based on available 5-year data [10].",
+          "supported": true,
+          "max_score": 0.38
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 8.87
+  },
+  {
+    "id": "17894828",
+    "answer": "Severe hypoglycemia is associated with increased morbidity, mortality, and impaired quality of life in type 1 diabetes (T1D) [1]. Impaired glucagon secretion from pancreatic alpha cells is a cause of life-threatening hypoglycemia in individuals with T1D [3].",
+    "citations": [
+      "41791767",
+      "41938302",
+      "41824458",
+      "41755785",
+      "41913542"
+    ],
+    "retrieved_pmids": [
+      "41791767",
+      "41938302",
+      "41824458",
+      "41755785",
+      "41913542"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Severe hypoglycemia is associated with increased morbidity, mortality, and impaired quality of life in type 1 diabetes (T1D) [1].",
+          "supported": true,
+          "max_score": 0.94
+        },
+        {
+          "text": "Impaired glucagon secretion from pancreatic alpha cells is a cause of life-threatening hypoglycemia in individuals with T1D [3].",
+          "supported": true,
+          "max_score": 0.872
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 3.78
+  },
+  {
+    "id": "12145243",
+    "answer": "[3] Notably, many individuals with normal hemoglobin A1c and fasting plasma glucose levels may still be at elevated risk for progression to diabetes. [4] Primary outcomes were changes in HbA1c, fasting plasma glucose (FPG), and postprandial plasma glucose (PPPG).",
+    "citations": [
+      "41933349",
+      "41821604",
+      "41759934",
+      "41907100",
+      "41861164"
+    ],
+    "retrieved_pmids": [
+      "41933349",
+      "41821604",
+      "41759934",
+      "41907100",
+      "41861164"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[3] Notably, many individuals with normal hemoglobin A1c and fasting plasma glucose levels may still be at elevated risk for progression to diabetes.",
+          "supported": true,
+          "max_score": 0.983
+        },
+        {
+          "text": "[4] Primary outcomes were changes in HbA1c, fasting plasma glucose (FPG), and postprandial plasma glucose (PPPG).",
+          "supported": true,
+          "max_score": 0.979
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 3.63
+  },
+  {
+    "id": "16971978",
+    "answer": "Yes, bifurcation lesions were more frequent in patients with acute coronary syndrome (ACS) than in those without [4]. Diabetes mellitus was present in 40.8% of patients and 26.6% had diabetes mellitus among the study participants [5].",
+    "citations": [
+      "41994692",
+      "41757672",
+      "41807025",
+      "41886696",
+      "41910382"
+    ],
+    "retrieved_pmids": [
+      "41994692",
+      "41757672",
+      "41807025",
+      "41886696",
+      "41910382"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Yes, bifurcation lesions were more frequent in patients with acute coronary syndrome (ACS) than in those without [4].",
+          "supported": false,
+          "max_score": 0.07
+        },
+        {
+          "text": "Diabetes mellitus was present in 40.8% of patients and 26.6% had diabetes mellitus among the study participants [5].",
+          "supported": true,
+          "max_score": 0.612
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 3.41
+  },
+  {
+    "id": "23222920",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41795015",
+      "41769424",
+      "41795015",
+      "41872174",
+      "41872915"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.24
+  },
+  {
+    "id": "22522271",
+    "answer": "[1] mentions that late-night salivary cortisol is less commonly performed compared to other diagnostic tests like 24-h urinary free cortisol and the 1-mg overnight dexamethasone suppression test. However, it does not provide a direct comparison of late-night salivary cortisol against standard screening tests in obese patients with Type 2 diabetes for detecting possible cortisol excess.",
+    "citations": [
+      "41919182",
+      "41946536",
+      "41935676",
+      "41935676",
+      "41935676"
+    ],
+    "retrieved_pmids": [
+      "41919182",
+      "41946536",
+      "41935676",
+      "41935676",
+      "41935676"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[1] mentions that late-night salivary cortisol is less commonly performed compared to other diagnostic tests like 24-h urinary free cortisol and the 1-mg overnight dexamethasone suppression test.",
+          "supported": true,
+          "max_score": 0.991
+        },
+        {
+          "text": "However, it does not provide a direct comparison of late-night salivary cortisol against standard screening tests in obese patients with Type 2 diabetes for detecting possible cortisol excess.",
+          "supported": false,
+          "max_score": 0.002
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 7.19
+  },
+  {
+    "id": "15095519",
+    "answer": "A dietitian/nurse team provided dietary and lifestyle recommendations to the patient/family, while a nephrologist/endocrinologist made diabetes and CKD recommendations to the primary care provider [1]. Ensuring that patients understand what is provided from dietetic services and receiving a referral to consult with a dietitian will be important for supporting the provision of MNT in clinical practice [4].",
+    "citations": [
+      "41752319",
+      "41767512",
+      "41854354",
+      "41884987",
+      "41858637"
+    ],
+    "retrieved_pmids": [
+      "41752319",
+      "41767512",
+      "41854354",
+      "41884987",
+      "41858637"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "A dietitian/nurse team provided dietary and lifestyle recommendations to the patient/family, while a nephrologist/endocrinologist made diabetes and CKD recommendations to the primary care provider [1].",
+          "supported": true,
+          "max_score": 0.859
+        },
+        {
+          "text": "Ensuring that patients understand what is provided from dietetic services and receiving a referral to consult with a dietitian will be important for supporting the provision of MNT in clinical practice [4].",
+          "supported": true,
+          "max_score": 0.919
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 4.13
+  },
+  {
+    "id": "16241924",
+    "answer": "The passages do not provide information on whether parity increases insulin resistance during pregnancy. [1], [2], [3], [4], [5], [6], [7], [8]",
+    "citations": [
+      "41746698",
+      "41837467",
+      "41918874",
+      "41746698",
+      "41746698",
+      "41793898",
+      "41919486",
+      "41882799"
+    ],
+    "retrieved_pmids": [
+      "41746698",
+      "41837467",
+      "41918874",
+      "41746698",
+      "41746698",
+      "41793898",
+      "41919486",
+      "41882799"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The passages do not provide information on whether parity increases insulin resistance during pregnancy.",
+          "supported": false,
+          "max_score": 0.017
+        },
+        {
+          "text": "[1], [2], [3], [4], [5], [6], [7], [8]",
+          "supported": false,
+          "max_score": 0.24
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 6.17
+  },
+  {
+    "id": "15787677",
+    "answer": "The provided passages do not address the specific question about aerobic fitness influencing microvascular function in healthy adults at risk of developing Type 2 diabetes. [1], [2], and [3] discuss the impact of aerobic exercise on cardiorespiratory fitness in individuals with Type 2 diabetes, while [4] and [5] mention impaired fitness in people with type 1 and type 2 diabetes but do not relate to microvascular function or at-risk healthy adults.",
+    "citations": [
+      "41906954",
+      "41906954",
+      "41911289",
+      "41943659",
+      "41918256"
+    ],
+    "retrieved_pmids": [
+      "41906954",
+      "41906954",
+      "41911289",
+      "41943659",
+      "41918256"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The provided passages do not address the specific question about aerobic fitness influencing microvascular function in healthy adults at risk of developing Type 2 diabetes.",
+          "supported": false,
+          "max_score": 0.051
+        },
+        {
+          "text": "[1], [2], and [3] discuss the impact of aerobic exercise on cardiorespiratory fitness in individuals with Type 2 diabetes, while [4] and [5] mention impaired fitness in people with type 1 and type 2 diabetes but do not relate to microvascular function or at-risk healthy adults.",
+          "supported": false,
+          "max_score": 0.08
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 16.58
+  },
+  {
+    "id": "19406119",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41879395",
+      "41840723",
+      "41985848",
+      "41830569",
+      "41769289"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.3
+  },
+  {
+    "id": "8521557",
+    "answer": "No, according to the provided passages, the insertion (I) allele of the ACE gene I/D polymorphism is not a candidate gene for insulin resistance; instead, the DD genotype was found to be more likely associated with DKD [2, 4].",
+    "citations": [
+      "41914989",
+      "41884097",
+      "41914989",
+      "41884097",
+      "41859967",
+      "41965891",
+      "41923384"
+    ],
+    "retrieved_pmids": [
+      "41914989",
+      "41884097",
+      "41914989",
+      "41884097",
+      "41859967",
+      "41965891",
+      "41923384"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "No, according to the provided passages, the insertion (I) allele of the ACE gene I/D polymorphism is not a candidate gene for insulin resistance; instead, the DD genotype was found to be more likely associated with DKD [2, 4].",
+          "supported": false,
+          "max_score": 0.033
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 14.33
+  },
+  {
+    "id": "8738894",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41887353",
+      "41949139",
+      "41804428",
+      "41882335",
+      "41871818"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.34
+  },
+  {
+    "id": "25675614",
+    "answer": "Yes, gingival crevicular blood (GCB) can be relied upon for assessing blood glucose levels as it showed almost perfect agreement with peripheral blood measurements using two different glucometers [1]. GCB can also be collected safely and conveniently, making it a viable alternative to venous or peripheral blood for glucose estimation [3, 4].",
+    "citations": [
+      "41918662",
+      "41918662",
+      "41918662",
+      "41918662",
+      "41928535"
+    ],
+    "retrieved_pmids": [
+      "41918662",
+      "41918662",
+      "41918662",
+      "41918662",
+      "41928535"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Yes, gingival crevicular blood (GCB) can be relied upon for assessing blood glucose levels as it showed almost perfect agreement with peripheral blood measurements using two different glucometers [1].",
+          "supported": true,
+          "max_score": 0.985
+        },
+        {
+          "text": "GCB can also be collected safely and conveniently, making it a viable alternative to venous or peripheral blood for glucose estimation [3, 4].",
+          "supported": false,
+          "max_score": 0.024
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 4.05
+  },
+  {
+    "id": "20011163",
+    "answer": "Studies suggest that Roux-en-Y gastric bypass can lead to improved glucose homeostasis and resolution of type 2 diabetes mellitus beyond weight loss, but the exact long-term mechanisms are not fully understood [3,4].",
+    "citations": [
+      "41772539",
+      "41851489",
+      "41994483",
+      "41773651",
+      "41813264",
+      "41837839",
+      "41795960",
+      "41881251"
+    ],
+    "retrieved_pmids": [
+      "41772539",
+      "41851489",
+      "41994483",
+      "41773651",
+      "41813264",
+      "41837839",
+      "41795960",
+      "41881251"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Studies suggest that Roux-en-Y gastric bypass can lead to improved glucose homeostasis and resolution of type 2 diabetes mellitus beyond weight loss, but the exact long-term mechanisms are not fully understood [3,4].",
+          "supported": false,
+          "max_score": 0.032
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 11.29
+  },
+  {
+    "id": "21593045",
+    "answer": "[4]",
+    "citations": [
+      "41952865",
+      "41884102",
+      "41772675",
+      "41932287",
+      "41808666"
+    ],
+    "retrieved_pmids": [
+      "41952865",
+      "41884102",
+      "41772675",
+      "41932287",
+      "41808666"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 1.05
+  }
+]

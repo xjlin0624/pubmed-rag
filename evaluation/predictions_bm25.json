@@ -1,0 +1,870 @@
+[
+  {
+    "id": "15703931",
+    "answer": "The provided passages do not address the influence of diabetes mellitus on the efficacy of FDG-PET for diagnosing cervical cancer. [1-9]",
+    "citations": [
+      "41888634",
+      "41787367",
+      "41893689",
+      "41914590",
+      "41962152",
+      "41968536",
+      "41967182",
+      "41914110",
+      "41993984"
+    ],
+    "retrieved_pmids": [
+      "41888634",
+      "41787367",
+      "41893689",
+      "41914590",
+      "41962152",
+      "41968536",
+      "41967182",
+      "41914110",
+      "41993984"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The provided passages do not address the influence of diabetes mellitus on the efficacy of FDG-PET for diagnosing cervical cancer.",
+          "supported": false,
+          "max_score": 0.007
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 54.25
+  },
+  {
+    "id": "15800018",
+    "answer": "[3] Mortality gradually decreased as blood glucose levels decreased; maintaining blood glucose at a lower level of 5.6-6.7 mmol/L (100-120 mg/dL) was associated with the lowest mortality without increasing the risk of hypoglycemia. [4] The increased risks were more pronounced among infants in the comorbid impaired fasting glucose and impaired glucose tolerance group (RR, 3.2; 95% CI, 1.4-7.7), followed by the impaired glucose tolerance group (RR, 1.8; 95% CI, 1.1-3.0) and the impaired fasting glucose group (RR, 1.6; 95% CI, 0.7-3.6), compared with unexposed infants.",
+    "citations": [
+      "41787849",
+      "41789328",
+      "41833353",
+      "41920590",
+      "41759428"
+    ],
+    "retrieved_pmids": [
+      "41787849",
+      "41789328",
+      "41833353",
+      "41920590",
+      "41759428"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[3] Mortality gradually decreased as blood glucose levels decreased; maintaining blood glucose at a lower level of 5.6-6.7 mmol/L (100-120 mg/dL) was associated with the lowest mortality without increasing the risk of hypoglycemia.",
+          "supported": true,
+          "max_score": 0.987
+        },
+        {
+          "text": "[4] The increased risks were more pronounced among infants in the comorbid impaired fasting glucose and impaired glucose tolerance group (RR, 3.2; 95% CI, 1.4-7.7), followed by the impaired glucose tolerance group (RR, 1.8; 95% CI, 1.1-3.0) and the impaired fasting glucose group (RR, 1.6; 95% CI, 0.7-3.6), compared with unexposed infants.",
+          "supported": true,
+          "max_score": 0.729
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 7.16
+  },
+  {
+    "id": "27456836",
+    "answer": "[3] A support vector machine trained on TrialNet Pathway to Prevention and tested on Diabetes Prevention Trial-Type 1 achieved an area under the curve of 0.77 at 1.4 years prior to diagnosis, with strong calibration and interpretability. [1] We undertook this study to improve early identification of the metabolic inflection point (IP) preceding clinical type 1 diabetes in autoantibody-positive individuals.",
+    "citations": [
+      "41860454",
+      "41757176",
+      "41860454",
+      "41889264",
+      "41774599"
+    ],
+    "retrieved_pmids": [
+      "41860454",
+      "41757176",
+      "41860454",
+      "41889264",
+      "41774599"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[3] A support vector machine trained on TrialNet Pathway to Prevention and tested on Diabetes Prevention Trial-Type 1 achieved an area under the curve of 0.77 at 1.4 years prior to diagnosis, with strong calibration and interpretability.",
+          "supported": true,
+          "max_score": 0.953
+        },
+        {
+          "text": "[1] We undertook this study to improve early identification of the metabolic inflection point (IP) preceding clinical type 1 diabetes in autoantibody-positive individuals.",
+          "supported": true,
+          "max_score": 0.987
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 4.46
+  },
+  {
+    "id": "22720085",
+    "answer": "Yes, insulin resistance drives the association between hyperglycemia and cardiovascular risk as it is a key driver of both prediabetes, type 2 diabetes, and cardiovascular disease risk [1]. Insulin resistance also correlates with poor stroke outcomes in type 2 diabetes, though its causative role is unclear [2].",
+    "citations": [
+      "41836049",
+      "41805868",
+      "41906188",
+      "41830794",
+      "41776572",
+      "41957890",
+      "41938108"
+    ],
+    "retrieved_pmids": [
+      "41836049",
+      "41805868",
+      "41906188",
+      "41830794",
+      "41776572",
+      "41957890",
+      "41938108"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Yes, insulin resistance drives the association between hyperglycemia and cardiovascular risk as it is a key driver of both prediabetes, type 2 diabetes, and cardiovascular disease risk [1].",
+          "supported": true,
+          "max_score": 0.533
+        },
+        {
+          "text": "Insulin resistance also correlates with poor stroke outcomes in type 2 diabetes, though its causative role is unclear [2].",
+          "supported": true,
+          "max_score": 0.945
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 10.2
+  },
+  {
+    "id": "26556589",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41788782",
+      "41842936",
+      "41832512",
+      "41995543",
+      "41927192"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.39
+  },
+  {
+    "id": "21801416",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41772769",
+      "41752491",
+      "41962652",
+      "41928890",
+      "41844141"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.64
+  },
+  {
+    "id": "24139705",
+    "answer": "The evidence suggests that technology, including continuous glucose monitoring (CGM) and automated insulin delivery systems [8, 9, 10], can significantly improve glycaemic control in people with both type 1 and type 2 diabetes. However, direct comparative evidence regarding their impact on mortality remains limited [13].",
+    "citations": [
+      "41747751",
+      "41762380",
+      "41952364",
+      "41761141",
+      "41970147",
+      "41995155",
+      "41937000",
+      "41973910",
+      "41820663",
+      "41886736",
+      "41780644",
+      "41993985",
+      "41961089",
+      "41917055"
+    ],
+    "retrieved_pmids": [
+      "41747751",
+      "41762380",
+      "41952364",
+      "41761141",
+      "41970147",
+      "41995155",
+      "41937000",
+      "41973910",
+      "41820663",
+      "41886736",
+      "41780644",
+      "41993985",
+      "41961089",
+      "41917055"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The evidence suggests that technology, including continuous glucose monitoring (CGM) and automated insulin delivery systems [8, 9, 10], can significantly improve glycaemic control in people with both type 1 and type 2 diabetes.",
+          "supported": true,
+          "max_score": 0.92
+        },
+        {
+          "text": "However, direct comparative evidence regarding their impact on mortality remains limited [13].",
+          "supported": true,
+          "max_score": 0.585
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 15.58
+  },
+  {
+    "id": "15939071",
+    "answer": "[5] However, offspring of GDM mothers requiring insulin during pregnancy had a higher risk of type 1 diabetes (HR, 1.936 [1.228-3.052]).",
+    "citations": [
+      "41950059",
+      "41991476",
+      "41767436",
+      "41840356",
+      "41787464"
+    ],
+    "retrieved_pmids": [
+      "41950059",
+      "41991476",
+      "41767436",
+      "41840356",
+      "41787464"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[5] However, offspring of GDM mothers requiring insulin during pregnancy had a higher risk of type 1 diabetes (HR, 1.936 [1.228-3.052]).",
+          "supported": true,
+          "max_score": 0.987
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 2.52
+  },
+  {
+    "id": "24901580",
+    "answer": "The optimal amputation level along the first ray in diabetic foot disorders remains disputed, particularly the choice between transmetatarsal first ray amputation and hallux amputation [1]. There is no mention of scintigraphy being used as a guideline method for determining these amputation levels [2][3][4][5][6][7].",
+    "citations": [
+      "41995011",
+      "41802396",
+      "41857368",
+      "41881251",
+      "41767359",
+      "41767398",
+      "41891731"
+    ],
+    "retrieved_pmids": [
+      "41995011",
+      "41802396",
+      "41857368",
+      "41881251",
+      "41767359",
+      "41767398",
+      "41891731"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The optimal amputation level along the first ray in diabetic foot disorders remains disputed, particularly the choice between transmetatarsal first ray amputation and hallux amputation [1].",
+          "supported": true,
+          "max_score": 0.913
+        },
+        {
+          "text": "There is no mention of scintigraphy being used as a guideline method for determining these amputation levels [2][3][4][5][6][7].",
+          "supported": false,
+          "max_score": 0.003
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 5.87
+  },
+  {
+    "id": "18948835",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41937553",
+      "41913855",
+      "41819046",
+      "41852484",
+      "41931209"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.35
+  },
+  {
+    "id": "15125825",
+    "answer": "[4] We conducted a single-center, non-randomized, open-label, crossover study in hospitalized adults with type 2 diabetes or steroid-induced diabetes who were receiving morning oral prednisolone (\u22655 mg/day) and required insulin therapy. [1] Participants were classified as non-diabetic, type 2 diabetes (T2DM) with oral hypoglycemic agents (OHAs), T2DM with insulin, or type 1 diabetes (T1DM).",
+    "citations": [
+      "41853851",
+      "41939902",
+      "41986942",
+      "41909307",
+      "41814312"
+    ],
+    "retrieved_pmids": [
+      "41853851",
+      "41939902",
+      "41986942",
+      "41909307",
+      "41814312"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[4] We conducted a single-center, non-randomized, open-label, crossover study in hospitalized adults with type 2 diabetes or steroid-induced diabetes who were receiving morning oral prednisolone (\u22655 mg/day) and required insulin therapy.",
+          "supported": true,
+          "max_score": 0.984
+        },
+        {
+          "text": "[1] Participants were classified as non-diabetic, type 2 diabetes (T2DM) with oral hypoglycemic agents (OHAs), T2DM with insulin, or type 1 diabetes (T1DM).",
+          "supported": true,
+          "max_score": 0.985
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 4.64
+  },
+  {
+    "id": "12006913",
+    "answer": "[1] indicates that ischemic heart disease presentations differ between genders, with some risks occurring at lower thresholds in women. However, the passages do not provide direct comparison of equal risk conferred by lipids, blood pressure, diabetes, and smoking specifically between women and men.",
+    "citations": [
+      "41999366",
+      "41864779",
+      "41894716",
+      "41896640",
+      "41871591"
+    ],
+    "retrieved_pmids": [
+      "41999366",
+      "41864779",
+      "41894716",
+      "41896640",
+      "41871591"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[1] indicates that ischemic heart disease presentations differ between genders, with some risks occurring at lower thresholds in women.",
+          "supported": true,
+          "max_score": 0.991
+        },
+        {
+          "text": "However, the passages do not provide direct comparison of equal risk conferred by lipids, blood pressure, diabetes, and smoking specifically between women and men.",
+          "supported": false,
+          "max_score": 0.005
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 3.51
+  },
+  {
+    "id": "23224030",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41795035",
+      "41933490",
+      "41970987",
+      "41996632",
+      "41904972"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.34
+  },
+  {
+    "id": "22266735",
+    "answer": "[2] All participants underwent a 75-g oral glucose tolerance test (OGTT) at 24-28 weeks and GDM was diagnosed by International Association of the Diabetes and Pregnancy Study Groups (IADPSG) criteria. [3] GDM diagnosis was based on the International Association of Diabetes and Pregnancy Study Groups criteria using a one-step 75-g oral glucose tolerance test.",
+    "citations": [
+      "42000050",
+      "41779244",
+      "41822965",
+      "41747674",
+      "41793699"
+    ],
+    "retrieved_pmids": [
+      "42000050",
+      "41779244",
+      "41822965",
+      "41747674",
+      "41793699"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[2] All participants underwent a 75-g oral glucose tolerance test (OGTT) at 24-28 weeks and GDM was diagnosed by International Association of the Diabetes and Pregnancy Study Groups (IADPSG) criteria.",
+          "supported": true,
+          "max_score": 0.988
+        },
+        {
+          "text": "[3] GDM diagnosis was based on the International Association of Diabetes and Pregnancy Study Groups criteria using a one-step 75-g oral glucose tolerance test.",
+          "supported": true,
+          "max_score": 0.975
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 4.54
+  },
+  {
+    "id": "17894828",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41925716",
+      "41862429",
+      "41938302",
+      "41896315",
+      "41841791"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.44
+  },
+  {
+    "id": "12145243",
+    "answer": "Fasting plasma glucose remained more discriminative for diabetes risk than other variables [5], suggesting that lower fasting plasma glucose levels at diagnosis might be associated with better outcomes. However, specific evidence linking lower fasting plasma glucose levels directly to improved outcomes in the provided passages is not explicitly stated.",
+    "citations": [
+      "41933349",
+      "41947972",
+      "41759934",
+      "41808269",
+      "41907100",
+      "41852244",
+      "41847446",
+      "41814251",
+      "41881007",
+      "41861164"
+    ],
+    "retrieved_pmids": [
+      "41933349",
+      "41947972",
+      "41759934",
+      "41808269",
+      "41907100",
+      "41852244",
+      "41847446",
+      "41814251",
+      "41881007",
+      "41861164"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Fasting plasma glucose remained more discriminative for diabetes risk than other variables [5], suggesting that lower fasting plasma glucose levels at diagnosis might be associated with better outcomes.",
+          "supported": false,
+          "max_score": 0.017
+        },
+        {
+          "text": "However, specific evidence linking lower fasting plasma glucose levels directly to improved outcomes in the provided passages is not explicitly stated.",
+          "supported": false,
+          "max_score": 0.006
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 13.94
+  },
+  {
+    "id": "16971978",
+    "answer": "Yes, bifurcation lesions were more frequent in patients with complex atherosclerotic disease (CAP) than in those without [3]. Diabetic patients undergoing percutaneous coronary intervention (PCI) frequently have complex coronary artery disease (CAD) [1].",
+    "citations": [
+      "41776495",
+      "41813275",
+      "41886696",
+      "41987535",
+      "41886092",
+      "41805671",
+      "41993977",
+      "41977405",
+      "41958810",
+      "41933321"
+    ],
+    "retrieved_pmids": [
+      "41776495",
+      "41813275",
+      "41886696",
+      "41987535",
+      "41886092",
+      "41805671",
+      "41993977",
+      "41977405",
+      "41958810",
+      "41933321"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Yes, bifurcation lesions were more frequent in patients with complex atherosclerotic disease (CAP) than in those without [3].",
+          "supported": true,
+          "max_score": 0.393
+        },
+        {
+          "text": "Diabetic patients undergoing percutaneous coronary intervention (PCI) frequently have complex coronary artery disease (CAD) [1].",
+          "supported": true,
+          "max_score": 0.886
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 7.74
+  },
+  {
+    "id": "23222920",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41795015",
+      "41795015",
+      "41779680",
+      "41897484",
+      "41968731"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.27
+  },
+  {
+    "id": "22522271",
+    "answer": "The passage does not provide enough information to determine if late-night salivary cortisol is a better screening test for possible cortisol excess in obese patients with Type 2 diabetes compared to standard screening tests [1], [2].",
+    "citations": [
+      "41919182",
+      "41946536",
+      "41935676",
+      "41938295",
+      "41935676",
+      "41971921",
+      "41988554",
+      "41923384",
+      "41830485"
+    ],
+    "retrieved_pmids": [
+      "41919182",
+      "41946536",
+      "41935676",
+      "41938295",
+      "41935676",
+      "41971921",
+      "41988554",
+      "41923384",
+      "41830485"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The passage does not provide enough information to determine if late-night salivary cortisol is a better screening test for possible cortisol excess in obese patients with Type 2 diabetes compared to standard screening tests [1], [2].",
+          "supported": false,
+          "max_score": 0.002
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 11.43
+  },
+  {
+    "id": "15095519",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41889433",
+      "41898482",
+      "41979786",
+      "41889433",
+      "41858637"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.36
+  },
+  {
+    "id": "16241924",
+    "answer": "The passages do not provide direct information on whether parity increases insulin resistance during pregnancy. However, they discuss various factors contributing to insulin resistance during different stages of life including pregnancy [1, 7, 10].",
+    "citations": [
+      "41982770",
+      "41994303",
+      "41766265",
+      "41805450",
+      "41890193",
+      "41871597",
+      "41837467",
+      "41983435",
+      "41978083",
+      "41746698",
+      "41989035"
+    ],
+    "retrieved_pmids": [
+      "41982770",
+      "41994303",
+      "41766265",
+      "41805450",
+      "41890193",
+      "41871597",
+      "41837467",
+      "41983435",
+      "41978083",
+      "41746698",
+      "41989035"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The passages do not provide direct information on whether parity increases insulin resistance during pregnancy.",
+          "supported": false,
+          "max_score": 0.048
+        },
+        {
+          "text": "However, they discuss various factors contributing to insulin resistance during different stages of life including pregnancy [1, 7, 10].",
+          "supported": false,
+          "max_score": 0.05
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 11.86
+  },
+  {
+    "id": "15787677",
+    "answer": "[3] Evidence on the effects of combined aerobic and resistance training on kidney function in type 2 diabetes (T2D) remains limited. [1] In individuals with Type 2 diabetes (T2D), aerobic exercise training improves cardiorespiratory fitness (VO2peak), a key determinant of cardiovascular risk and mortality.",
+    "citations": [
+      "41906954",
+      "41906954",
+      "41886945",
+      "41852244",
+      "41830069"
+    ],
+    "retrieved_pmids": [
+      "41906954",
+      "41906954",
+      "41886945",
+      "41852244",
+      "41830069"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[3] Evidence on the effects of combined aerobic and resistance training on kidney function in type 2 diabetes (T2D) remains limited.",
+          "supported": true,
+          "max_score": 0.988
+        },
+        {
+          "text": "[1] In individuals with Type 2 diabetes (T2D), aerobic exercise training improves cardiorespiratory fitness (VO2peak), a key determinant of cardiovascular risk and mortality.",
+          "supported": true,
+          "max_score": 0.982
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 3.88
+  },
+  {
+    "id": "19406119",
+    "answer": "[3] Administration of quercetagetin alleviated hepatic steatosis, inflammation, and fibrosis in MASH mice. [Note: The passage does not specifically mention telmisartan or alloxan-induced diabetic rats.]",
+    "citations": [
+      "41972925",
+      "41804242",
+      "41997496",
+      "41862150",
+      "41780760",
+      "41925328"
+    ],
+    "retrieved_pmids": [
+      "41972925",
+      "41804242",
+      "41997496",
+      "41862150",
+      "41780760",
+      "41925328"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[3] Administration of quercetagetin alleviated hepatic steatosis, inflammation, and fibrosis in MASH mice.",
+          "supported": true,
+          "max_score": 0.982
+        },
+        {
+          "text": "[Note: The passage does not specifically mention telmisartan or alloxan-induced diabetic rats.]",
+          "supported": false,
+          "max_score": 0.222
+        }
+      ],
+      "overall_rate": 0.5
+    },
+    "elapsed_s": 5.99
+  },
+  {
+    "id": "8521557",
+    "answer": "The insertion (I) allele of the ACE gene I/D polymorphism has been explored as a potential risk factor for insulin sensitivity and susceptibility to insulin-resistant nephropathy [4, 2].",
+    "citations": [
+      "41914989",
+      "41914989",
+      "41884097",
+      "41914989",
+      "41914989"
+    ],
+    "retrieved_pmids": [
+      "41914989",
+      "41914989",
+      "41884097",
+      "41914989",
+      "41914989"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "The insertion (I) allele of the ACE gene I/D polymorphism has been explored as a potential risk factor for insulin sensitivity and susceptibility to insulin-resistant nephropathy [4, 2].",
+          "supported": false,
+          "max_score": 0.082
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 7.83
+  },
+  {
+    "id": "8738894",
+    "answer": "Insufficient information found in retrieved sources to answer this question.",
+    "citations": [],
+    "retrieved_pmids": [
+      "41854531",
+      "41970430",
+      "41944218",
+      "41886736",
+      "41903051"
+    ],
+    "faithfulness": {
+      "sentences": [],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 0.32
+  },
+  {
+    "id": "25675614",
+    "answer": "Yes, gingival crevicular blood can be reliably used for assessing blood glucose levels as it showed almost perfect agreement with peripheral blood measurements using glucometers [1].",
+    "citations": [
+      "41918662",
+      "41918662",
+      "41918662",
+      "41918662",
+      "41802056"
+    ],
+    "retrieved_pmids": [
+      "41918662",
+      "41918662",
+      "41918662",
+      "41918662",
+      "41802056"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "Yes, gingival crevicular blood can be reliably used for assessing blood glucose levels as it showed almost perfect agreement with peripheral blood measurements using glucometers [1].",
+          "supported": true,
+          "max_score": 0.951
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 2.38
+  },
+  {
+    "id": "20011163",
+    "answer": "[4] suggests that Roux-en-Y gastric bypass improves glucose homeostasis beyond weight loss, but the underlying mechanisms are not fully understood. [5] indicates that studies have shown the duodenum plays a key role in the pathophysiology of type 2 diabetes following RYGB surgery.",
+    "citations": [
+      "41893689",
+      "41772539",
+      "41951955",
+      "41994483",
+      "41773651"
+    ],
+    "retrieved_pmids": [
+      "41893689",
+      "41772539",
+      "41951955",
+      "41994483",
+      "41773651"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[4] suggests that Roux-en-Y gastric bypass improves glucose homeostasis beyond weight loss, but the underlying mechanisms are not fully understood.",
+          "supported": true,
+          "max_score": 0.974
+        },
+        {
+          "text": "[5] indicates that studies have shown the duodenum plays a key role in the pathophysiology of type 2 diabetes following RYGB surgery.",
+          "supported": true,
+          "max_score": 0.955
+        }
+      ],
+      "overall_rate": 1.0
+    },
+    "elapsed_s": 3.63
+  },
+  {
+    "id": "21593045",
+    "answer": "[1] This study aimed to explore the impact of metformin on gonadotropin levels in women with polycystic ovary syndrome (PCOS) based on a meta-analysis of randomised controlled trials (RCTs); however, it does not specifically address women with ovaries of polycystic morphology without other PCOS features.",
+    "citations": [
+      "41891336",
+      "41802911",
+      "41952865",
+      "41961878",
+      "41756711",
+      "41776814",
+      "41853396",
+      "41860479"
+    ],
+    "retrieved_pmids": [
+      "41891336",
+      "41802911",
+      "41952865",
+      "41961878",
+      "41756711",
+      "41776814",
+      "41853396",
+      "41860479"
+    ],
+    "faithfulness": {
+      "sentences": [
+        {
+          "text": "[1] This study aimed to explore the impact of metformin on gonadotropin levels in women with polycystic ovary syndrome (PCOS) based on a meta-analysis of randomised controlled trials (RCTs); however, it does not specifically address women with ovaries of polycystic morphology without other PCOS features.",
+          "supported": false,
+          "max_score": 0.094
+        }
+      ],
+      "overall_rate": 0.0
+    },
+    "elapsed_s": 13.3
+  }
+]
