@@ -9,8 +9,8 @@ flowchart LR
     subgraph gcp["GCP VM (demo)"]
         ST[Streamlit app.py]
         PL[pipeline.run]
-        RT[retriever.retrieve\nBM25 + dense + FAISS]
-        GEN[generator.generate_answer\nOllama Qwen3]
+        RT[retriever.retrieve\nBM25 + dense + FAISS\n+ cross-encoder reranker]
+        GEN[generator.generate_answer\nOllama Qwen2.5-7B]
         NLI[generator.check_faithfulness\nNLI cross-encoder]
         OL[Ollama 127.0.0.1:11434]
         IDX[(chunks.json +\nfaiss.index)]
@@ -20,7 +20,8 @@ flowchart LR
     ST --> PL
     PL -->|retrieve query, top_k| RT
     RT --> IDX
-    PL -->|context passages| GEN
+    RT -->|top-K passages| GEN
     GEN -->|HTTP /api/generate| OL
     GEN -->|answer + context| NLI
+    NLI -->|faithfulness < threshold?\nre-retrieve unsupported sentences| RT
     NLI -->|sentence-level scores| ST
