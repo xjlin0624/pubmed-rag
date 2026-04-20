@@ -34,7 +34,7 @@ Diagram source (Mermaid): [`diagrams/system_architecture.mmd`](diagrams/system_a
 ### 1. Clone and configure
 
 ```bash
-git clone https://github.com/your-org/pubmed-rag.git
+git clone https://github.com/xjlin0624/pubmed-rag.git
 cd pubmed-rag
 cp .env.example .env
 ```
@@ -121,11 +121,14 @@ pubmed-rag/
 ├── .env.example
 ├── diagrams/
 │   └── system_architecture.mmd
+├── data/
+│   └── bioasq_gold.json      # BioASQ gold evaluation questions
 ├── retriever/
 │   └── retriever.py          # ingest + retrieve(query, top_k)
 ├── generator/
 │   └── generator.py          # generate_answer, check_faithfulness
 └── evaluation/
+    ├── run_eval.py           # run pipeline over BioASQ, save predictions
     ├── ablation_smoke.py     # four-branch smoke table + JSON
     ├── bioasq_eval.py        # BioASQ EM / F1 / Recall@k metrics
     ├── eda.py                # corpus EDA (matplotlib)
@@ -157,7 +160,7 @@ Four configurations tested on the diabetes corpus:
 | Hybrid (`BM25_ALPHA=0.5`) | 1.0 |
 | Hybrid + strict NLI (`ABLATION_STRICT_NLI=0.75`) | 0.0 |
 
-Full results in `evaluation/ablation_smoke_results.json`. BioASQ EM / F1 / Recall@k metrics: TBD.
+Full results in `evaluation/ablation_smoke_results.json`. BioASQ EM / F1 / Recall@k metrics: pending GCP evaluation run.
 
 ```bash
 python -m evaluation.ablation_smoke
