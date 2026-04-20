@@ -44,7 +44,7 @@ def is_diabetes_related(question: str) -> bool:
 
 def convert_record(record: dict) -> dict | None:
     """Convert a PubMedQA record to BioASQ-compatible format."""
-    pmid = str(record.get("pubmed_id", "")).strip()
+    pmid = str(record.get("pubid", record.get("pubmed_id", ""))).strip()
     question = record.get("question", "").strip()
     long_answer = record.get("long_answer", "").strip()
 
@@ -82,7 +82,7 @@ def main() -> None:
     questions = []
     for split in splits:
         print(f"Downloading PubMedQA split: {split}...")
-        ds = load_dataset("qiaojin/PubMedQA", split, split="train", trust_remote_code=True)
+        ds = load_dataset("qiaojin/PubMedQA", split, split="train")
         print(f"  {len(ds)} records")
         for record in ds:
             converted = convert_record(record)
