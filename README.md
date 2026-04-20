@@ -102,7 +102,9 @@ CLI smoke test: `python pipeline.py`.
 | `MAX_ITER` | `2` | Max iterative re-retrieval rounds when faithfulness is low |
 | `MAX_CONTEXT` | `15` | Max total passages across all retrieval rounds |
 | `BM25_ALPHA` | `0.5` | Hybrid fusion (`1` = BM25 only, `0` = dense only) |
+| `RETRIEVAL_TOP_N` | `20` | Candidate pool size for cross-encoder reranking |
 | `EMBED_MODEL` | `ncbi/MedCPT-Article-Encoder` | Sentence embedding model for dense retrieval |
+| `RERANKER_MODEL` | `cross-encoder/ms-marco-MiniLM-L-6-v2` | Cross-encoder model for reranking |
 | `CHUNKS_FILE` / `INDEX_FILE` | `chunks.json` / `faiss.index` | Paths checked before calling the real retriever |
 | `USE_MOCK_RETRIEVER` | `0` | Set to `1` to force mock passages |
 | `BUILD_RETRIEVAL_INDEX` | `0` | Set to `1` in Docker to auto-build indexes at startup |
